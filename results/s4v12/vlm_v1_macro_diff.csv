@@ -1,0 +1,57 @@
+split,contrast,n_heads,diff_mean,ci_lo,ci_hi,n_seeds,n_refs
+test_cbis_ddsm,VLM minus concept route (cb decoders),8,-0.045000170607802814,-0.062278971202818355,-0.028072038342363822,3,6
+test_cbis_ddsm,VLM minus opaque decoders,8,-0.0380206722489026,-0.054065130759683534,-0.022009319314277506,3,6
+test_cbis_ddsm,"VLM minus cb decoders, concept slots only (no category)",7,-0.03308712742774356,-0.050721300101162776,-0.01564628974185484,3,6
+test_cbis_ddsm,VLM minus zero-shot V0,8,0.5873477324309426,0.5618161101890221,0.6113231481740918,3,1
+test_cbis_ddsm,VLM seed 0 macro,8,0.6273564823858138,,,1,0
+test_cbis_ddsm,VLM seed 1 macro,8,0.6722062233653558,,,1,0
+test_cbis_ddsm,VLM seed 2 macro,8,0.6313236144826588,,,1,0
+test_cdd_cesm,VLM minus concept route (cb decoders),9,-0.04558848851349828,-0.06261998430144698,-0.02802708230050674,3,6
+test_cdd_cesm,VLM minus opaque decoders,9,-0.01340740288521991,-0.031064567800564394,0.004007612125426173,3,6
+test_cdd_cesm,"VLM minus cb decoders, concept slots only (no category)",8,-0.04558180811714396,-0.06294287529253378,-0.028039367551781064,3,6
+test_cdd_cesm,VLM minus zero-shot V0,9,0.32674844568052264,0.3028546512433102,0.35182154842356933,3,1
+test_cdd_cesm,VLM seed 0 macro,9,0.5484867594408231,,,1,0
+test_cdd_cesm,VLM seed 1 macro,9,0.5518513523696091,,,1,0
+test_cdd_cesm,VLM seed 2 macro,9,0.5509785278218727,,,1,0
+test_cmmd,VLM minus concept route (cb decoders),2,-0.2774678708763409,-0.3087648256127012,-0.24682724981592472,3,6
+test_cmmd,VLM minus opaque decoders,2,-0.20615133576199152,-0.23348346022093694,-0.1792971679616165,3,6
+test_cmmd,"VLM minus cb decoders, concept slots only (no category)",2,-0.2774678708763409,-0.3087648256127012,-0.24682724981592472,3,6
+test_cmmd,VLM minus zero-shot V0,2,0.0343206081764825,0.0032482969548933128,0.06628162885527379,3,1
+test_cmmd,VLM seed 0 macro,2,0.2137693533697632,,,1,0
+test_cmmd,VLM seed 1 macro,2,0.2034001214329083,,,1,0
+test_cmmd,VLM seed 2 macro,2,0.23773337887067397,,,1,0
+test_embed,VLM minus concept route (cb decoders),7,0.0036071459638539194,-0.020349373986077935,0.025295847912565735,3,6
+test_embed,VLM minus opaque decoders,7,0.008200248817604727,-0.012140246157882003,0.02651205385609986,3,6
+test_embed,"VLM minus cb decoders, concept slots only (no category)",6,-0.004765079678211048,-0.03207871441421517,0.019472374861769767,3,6
+test_embed,VLM minus zero-shot V0,7,0.5182950041463567,0.4965291835267962,0.5427491420718548,3,1
+test_embed,VLM seed 0 macro,7,0.8020389651065625,,,1,0
+test_embed,VLM seed 1 macro,7,0.800955843332294,,,1,0
+test_embed,VLM seed 2 macro,7,0.8054530427489726,,,1,0
+test_embed_fuji,VLM minus concept route (cb decoders),7,0.04546542197079284,0.03144692247693211,0.05883894192456382,3,6
+test_embed_fuji,VLM minus opaque decoders,7,0.06748864673449773,0.05057074551603218,0.08201804118473735,3,6
+test_embed_fuji,"VLM minus cb decoders, concept slots only (no category)",6,0.025204564351659853,0.010687476834721904,0.03890100080809582,3,6
+test_embed_fuji,VLM minus zero-shot V0,7,0.47570703549634463,0.45039950489321573,0.4974351007494167,3,1
+test_embed_fuji,VLM seed 0 macro,7,0.7999494551015548,,,1,0
+test_embed_fuji,VLM seed 1 macro,7,0.7961840511384146,,,1,0
+test_embed_fuji,VLM seed 2 macro,7,0.7887247273761364,,,1,0
+test_embed_ge,VLM minus concept route (cb decoders),9,-0.020930650234069148,-0.04667080382169585,0.0034315359439237476,3,6
+test_embed_ge,VLM minus opaque decoders,9,-0.009725160892959162,-0.032109187113820846,0.012112320147290129,3,6
+test_embed_ge,"VLM minus cb decoders, concept slots only (no category)",8,-0.02915595587230213,-0.057999538455759767,-0.001964236943187916,3,6
+test_embed_ge,VLM minus zero-shot V0,9,0.3984937574021109,0.36615150402025104,0.43172288798016867,3,1
+test_embed_ge,VLM seed 0 macro,9,0.6542639636312882,,,1,0
+test_embed_ge,VLM seed 1 macro,9,0.6462134795417224,,,1,0
+test_embed_ge,VLM seed 2 macro,9,0.6520135296914567,,,1,0
+test_inbreast,VLM minus concept route (cb decoders),6,-0.03806544483537744,-0.05068091927848016,-0.02551084509006853,3,6
+test_inbreast,VLM minus opaque decoders,6,-0.046183268067399474,-0.059148035230352246,-0.03299457994579946,3,6
+test_inbreast,"VLM minus cb decoders, concept slots only (no category)",5,-0.035353330550420226,-0.04981338282001849,-0.02177228798023275,3,6
+test_inbreast,VLM minus zero-shot V0,6,0.20054564971077576,0.1765581247805142,0.22510464441743328,3,1
+test_inbreast,VLM seed 0 macro,6,0.6204961536167929,,,1,0
+test_inbreast,VLM seed 1 macro,6,0.5928588466813763,,,1,0
+test_inbreast,VLM seed 2 macro,6,0.5741576718945672,,,1,0
+test_vindr,VLM minus concept route (cb decoders),6,0.0013611111111111462,-0.002668055555555596,0.005250694444444627,3,6
+test_vindr,VLM minus opaque decoders,6,-0.002666666666666484,-0.007278472222222271,0.002056250000000025,3,6
+test_vindr,"VLM minus cb decoders, concept slots only (no category)",5,0.004033333333333222,-0.0006333333333333746,0.008433333333333293,3,6
+test_vindr,VLM minus zero-shot V0,6,0.37150000000000005,0.35716666666666674,0.38588888888888895,3,1
+test_vindr,VLM seed 0 macro,6,0.8996666666666666,,,1,0
+test_vindr,VLM seed 1 macro,6,0.9016666666666667,,,1,0
+test_vindr,VLM seed 2 macro,6,0.9011666666666666,,,1,0

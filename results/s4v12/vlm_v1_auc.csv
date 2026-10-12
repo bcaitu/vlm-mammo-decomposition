@@ -1,0 +1,4 @@
+split,contrast,diff_mean,ci_lo,ci_hi,n_pos,n_neg
+test_cbis_ddsm,"AUC of the category in text, VLM minus cb decoders",-0.050708665273661246,-0.09164589636110738,-0.009437876299269446,152,217
+test_cdd_cesm,"AUC of the category in text, VLM minus cb decoders",-0.07201335448206336,-0.10834541768764976,-0.037834620070255016,183,383
+test_cmmd,"AUC of the category in text, VLM minus cb decoders",-0.1209747363237762,-0.14383525516598036,-0.09679387003025133,711,289

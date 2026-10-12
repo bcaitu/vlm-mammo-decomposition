@@ -1,0 +1,190 @@
+{
+ "queue": {
+  "n_tasks": 19,
+  "n_done": 19,
+  "failed": [],
+  "pending": 0,
+  "time": "2026-10-09 17:26:42"
+ },
+ "queue_first_start": "15:06:28 START pil_2e-5 gpu 2",
+ "queue_last": "queue finished; failed: []",
+ "retries": [
+  "09:20:11 FAILED prb_VC_s1 rc 1 attempt 1",
+  "09:49:54 FAILED prb_VC_s0 rc 1 attempt 1",
+  "17:25:21 FAILED prb_VC_s2 rc 1 attempt 1"
+ ],
+ "train": [
+  {
+   "run": "V2x/f1_s0",
+   "steps": 9182,
+   "epochs": 2,
+   "seconds": 48746,
+   "lr": 0.0001,
+   "lr_vis": null,
+   "n_trainable": 43646976,
+   "n_vision": 0,
+   "loss_first": 2.5087602066993715,
+   "loss_last": 0.037415367658250036
+  },
+  {
+   "run": "V2x/f1_s1",
+   "steps": 9182,
+   "epochs": 2,
+   "seconds": 47383,
+   "lr": 0.0001,
+   "lr_vis": null,
+   "n_trainable": 43646976,
+   "n_vision": 0,
+   "loss_first": 2.511095006465912,
+   "loss_last": 0.04012451393529773
+  },
+  {
+   "run": "V2x/f1_s2",
+   "steps": 9182,
+   "epochs": 2,
+   "seconds": 47533,
+   "lr": 0.0001,
+   "lr_vis": null,
+   "n_trainable": 43646976,
+   "n_vision": 0,
+   "loss_first": 2.512094039916992,
+   "loss_last": 0.0373391211219132
+  },
+  {
+   "run": "VC/f1_s0",
+   "steps": 4591,
+   "epochs": 1,
+   "seconds": 35771,
+   "lr": 0.0001,
+   "lr_vis": 2e-05,
+   "n_trainable": 52536832,
+   "n_vision": 8889856,
+   "loss_first": 2.34151530623436,
+   "loss_last": 0.039388045319356024
+  },
+  {
+   "run": "VC/f1_s1",
+   "steps": 4591,
+   "epochs": 1,
+   "seconds": 34155,
+   "lr": 0.0001,
+   "lr_vis": 2e-05,
+   "n_trainable": 52536832,
+   "n_vision": 8889856,
+   "loss_first": 2.3496008944511413,
+   "loss_last": 0.03492825027555227
+  },
+  {
+   "run": "VC/f1_s2",
+   "steps": 4591,
+   "epochs": 1,
+   "seconds": 33888,
+   "lr": 0.0001,
+   "lr_vis": 2e-05,
+   "n_trainable": 52536832,
+   "n_vision": 8889856,
+   "loss_first": 2.344396998882294,
+   "loss_last": 0.040319934193976226
+  },
+  {
+   "run": "pilot/lrvis1e-4",
+   "steps": 2295,
+   "epochs": 8,
+   "seconds": 17005,
+   "lr": 0.0001,
+   "lr_vis": 0.0001,
+   "n_trainable": 52536832,
+   "n_vision": 8889856,
+   "loss_first": 1.9548163193464279,
+   "loss_last": 0.022791991672711447
+  },
+  {
+   "run": "pilot/lrvis2e-5",
+   "steps": 2295,
+   "epochs": 8,
+   "seconds": 16850,
+   "lr": 0.0001,
+   "lr_vis": 2e-05,
+   "n_trainable": 52536832,
+   "n_vision": 8889856,
+   "loss_first": 1.9593126249313355,
+   "loss_last": 0.014891943083785008
+  }
+ ],
+ "pilot": {
+  "pilot": {
+   "2e-5": {
+    "mean": 0.6621968110602328,
+    "ckpt": 765,
+    "per_ckpt": {
+     "765": 0.6621968110602328,
+     "1530": 0.6135022861449365,
+     "2295": 0.6135264834663965
+    },
+    "per_finding": {
+     "765": [
+      0.6566059136420526,
+      0.6625581781914893,
+      0.6674263413471564
+     ],
+     "1530": [
+      0.6930303504380475,
+      0.5275099734042554,
+      0.6199665345925066
+     ],
+     "2295": [
+      0.6909261576971214,
+      0.5153174867021277,
+      0.6343358059999403
+     ]
+    }
+   },
+   "1e-4": {
+    "mean": 0.6540011138280298,
+    "ckpt": 2295,
+    "per_ckpt": {
+     "765": 0.6535230133638844,
+     "1530": 0.6482259196345764,
+     "2295": 0.6540011138280298
+    },
+    "per_finding": {
+     "765": [
+      0.6703340112640801,
+      0.6276845079787234,
+      0.6625505208488496
+     ],
+     "1530": [
+      0.7360528785982479,
+      0.5943608710106383,
+      0.6142640092948433
+     ],
+     "2295": [
+      0.7419626095118899,
+      0.5905335771276596,
+      0.6295071548445399
+     ]
+    }
+   }
+  },
+  "lr_vis": "2e-5",
+  "rule": "1e-4 if mean(1e-4) - mean(2e-5) >= 0.005 else 2e-5"
+ },
+ "hash_main": {
+  "ok": 24,
+  "failed": [
+   "analysis_embed/s8_analysis.py: FAILED"
+  ]
+ },
+ "hash_phase2": {
+  "ok": 5,
+  "failed": []
+ },
+ "hash_dev1": {
+  "ok": 1,
+  "failed": []
+ },
+ "orig_frozen_sha": "1605d5a8b1cebd8133cd8e333b5e1865078fcf63b4d2c81569773e70e7b85f87",
+ "recorded_sha": "1605d5a8b1cebd8133cd8e333b5e1865078fcf63b4d2c81569773e70e7b85f87",
+ "analysis_start": "2026-10-09 17:26:45",
+ "analysis_end": "2026-10-09 17:27:08"
+}

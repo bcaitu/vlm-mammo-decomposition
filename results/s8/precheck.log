@@ -1,0 +1,29 @@
+OK   V s0: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   V s1: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   V s2: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   VC s0: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   VC s1: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   VC s2: rows 88648, test ids covered 13178/13178, finite and consistent True
+OK   V2x s0: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   V2x s1: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   V2x s2: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VP s0: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VP s1: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VP s2: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VCP s0: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VCP s1: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   VCP s2: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   A_tf s0: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   A_tf s1: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   A_tf s2: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   D s0: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   D s1: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   D s2: rows 13178, test ids covered 13178/13178, finite and consistent True
+OK   A_probe present
+OK   VC s0 covers the same number of test rows as V s0 (13178 vs 13178)
+OK   V2x s0 covers the same number of test rows as V s0 (13178 vs 13178)
+OK   VC s1 covers the same number of test rows as V s1 (13178 vs 13178)
+OK   V2x s1 covers the same number of test rows as V s1 (13178 vs 13178)
+OK   VC s2 covers the same number of test rows as V s2 (13178 vs 13178)
+OK   V2x s2 covers the same number of test rows as V s2 (13178 vs 13178)
+PRECHECK PASS

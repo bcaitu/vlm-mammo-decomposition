@@ -1,0 +1,53 @@
+                                                             contrast   finding         kind  delta     lo     hi                   verdict
+                                               S1 VC - V (tower gain)      mass  descriptive  0.010  0.004  0.016    adds (lower bound > 0)
+                                  S2 VC - D (gap to the stage-1 head)      mass  descriptive -0.014 -0.034  0.007                   unclear
+                                        S3 V2x - V (step-budget gain)      mass  descriptive  0.009  0.001  0.016    adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA)      mass  descriptive  0.014  0.004  0.024    adds (lower bound > 0)
+                        S5 VC - VCP (interface loss in the tower arm)      mass  descriptive -0.022 -0.033 -0.011   below (upper bound < 0)
+                                                             VC - V2x      mass  descriptive  0.002 -0.007  0.010  equivalent within +-0.03
+                                                        VCP - A_probe      mass  descriptive  0.041  0.022  0.060    adds (lower bound > 0)
+                                                           VCP - A_tf      mass  descriptive  0.022  0.010  0.034    adds (lower bound > 0)
+                                                              V2x - D      mass  descriptive -0.016 -0.034  0.005                   unclear
+                                               S1 VC - V (tower gain)      calc confirmatory -0.005 -0.014  0.005  equivalent within +-0.03
+                                  S2 VC - D (gap to the stage-1 head)      calc confirmatory -0.053 -0.077 -0.028   below (upper bound < 0)
+                                        S3 V2x - V (step-budget gain)      calc confirmatory  0.017  0.007  0.026    adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA)      calc confirmatory -0.013 -0.025 -0.002  equivalent within +-0.03
+                        S5 VC - VCP (interface loss in the tower arm)      calc  descriptive -0.021 -0.040 -0.003   below (upper bound < 0)
+                                                             VC - V2x      calc  descriptive -0.021 -0.034 -0.010 reduces (upper bound < 0)
+                                                        VCP - A_probe      calc  descriptive -0.019 -0.034 -0.006 reduces (upper bound < 0)
+                                                           VCP - A_tf      calc  descriptive  0.005 -0.008  0.019  equivalent within +-0.03
+                                                              V2x - D      calc  descriptive -0.031 -0.054 -0.009   below (upper bound < 0)
+                                               S1 VC - V (tower gain) asymmetry confirmatory  0.020  0.011  0.030    adds (lower bound > 0)
+                                  S2 VC - D (gap to the stage-1 head) asymmetry confirmatory -0.028 -0.046 -0.010   below (upper bound < 0)
+                                        S3 V2x - V (step-budget gain) asymmetry confirmatory  0.013  0.002  0.024    adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA) asymmetry confirmatory  0.015  0.005  0.024    adds (lower bound > 0)
+                        S5 VC - VCP (interface loss in the tower arm) asymmetry  descriptive -0.042 -0.055 -0.027   below (upper bound < 0)
+                                                             VC - V2x asymmetry  descriptive  0.007 -0.003  0.017  equivalent within +-0.03
+                                                        VCP - A_probe asymmetry  descriptive  0.018  0.004  0.032    adds (lower bound > 0)
+                                                           VCP - A_tf asymmetry  descriptive  0.016  0.004  0.028    adds (lower bound > 0)
+                                                              V2x - D asymmetry  descriptive -0.035 -0.053 -0.016   below (upper bound < 0)
+    arm   finding  n_seeds   auc    lo    hi  sd_seeds
+      V      mass        3 0.823 0.798 0.846     0.001
+      V      calc        3 0.700 0.669 0.730     0.002
+      V asymmetry        3 0.635 0.614 0.655     0.006
+     VP      mass        3 0.841 0.820 0.862     0.009
+     VP      calc        3 0.729 0.700 0.758     0.011
+     VP asymmetry        3 0.681 0.662 0.700     0.003
+     VC      mass        3 0.833 0.810 0.856     0.002
+     VC      calc        3 0.695 0.666 0.725     0.009
+     VC asymmetry        3 0.655 0.636 0.674     0.005
+    VCP      mass        3 0.855 0.833 0.876     0.004
+    VCP      calc        3 0.716 0.688 0.744     0.018
+    VCP asymmetry        3 0.696 0.677 0.714     0.005
+    V2x      mass        3 0.831 0.807 0.854     0.004
+    V2x      calc        3 0.716 0.687 0.744     0.010
+    V2x asymmetry        3 0.647 0.629 0.665     0.014
+      D      mass        3 0.847 0.824 0.869     0.000
+      D      calc        3 0.748 0.719 0.775     0.003
+      D asymmetry        3 0.683 0.664 0.701     0.005
+A_probe      mass        3 0.814 0.790 0.837     0.000
+A_probe      calc        3 0.735 0.705 0.764     0.000
+A_probe asymmetry        3 0.678 0.657 0.699     0.000
+   A_tf      mass        3 0.833 0.809 0.855     0.003
+   A_tf      calc        3 0.711 0.679 0.743     0.005
+   A_tf asymmetry        3 0.680 0.661 0.699     0.002

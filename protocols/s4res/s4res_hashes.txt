@@ -1,0 +1,10 @@
+# s4res hash record, written before feature extraction at 1344 and 1792 px
+recorded 2026-10-05T18:09:42Z (smoke test on 4 rows checked token counts and finiteness only; no probe values looked at)
+ac1aba4f20b4b6a240ebd6c3ce7380ed919fbf18efbe036c59dc806886666319  prereg/s4res_prereg_ru.md
+0c651a3f488e71e6226c01a992cbacd0096678b08d6babba5dba5441521ae57a  analysis_embed/vlm_diag_extract_res.py
+f6d150b5bdf3b71ed17635d8e8217a7d60acf23537ebf0866075e8bcabe7565c  analysis_embed/vlm_res_analysis.py
+b99729b4955fdcd0486fd299eb95a2d8e1f3e9d8941c17bf8c087d1497d40ae5  scripts/vlm_res_pipeline.sh
+6f1db00ae2b70b7c3fade4ca6d1917e53581e27576724e65f91e3f79ab7d7021  analysis_embed/vlm_make_cache_rows.py
+d48a49a68ca356429ee10b8075041e3e8d3d53e4775cc525413f97b6e1f0a750  analysis_embed/vlm_common.py
+8d29da3318003cbd88164b298b61ecb633d9d46815721f9bbfb04095caf4c538  runs_vlm/_diag/dev_rows.json
+9cb2221a855390d97cfc83d59c81485700d2f68c9246a7cceedf21d49d624596  runs_vlm/_diag/feat_base.npz

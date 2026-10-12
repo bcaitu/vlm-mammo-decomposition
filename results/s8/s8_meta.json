@@ -1,0 +1,23 @@
+{
+ "n_boot": 2000,
+ "arms_found": [
+  "A_probe",
+  "A_tf",
+  "D",
+  "V",
+  "V2x",
+  "VC",
+  "VCP",
+  "VP"
+ ],
+ "seeds_per_arm": {
+  "V": 3,
+  "VP": 3,
+  "VC": 3,
+  "VCP": 3,
+  "V2x": 3,
+  "D": 3,
+  "A_probe": 3,
+  "A_tf": 3
+ }
+}

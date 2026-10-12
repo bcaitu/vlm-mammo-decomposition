@@ -1,0 +1,36 @@
+                                         contrast   finding  size  delta     lo     hi  margin                                   verdict
+                                K1 VP - A* (A_tf)      mass    f1  0.008 -0.004  0.020    0.03                  equivalent within +-0.03
+                                        K2 V - VP      mass    f1 -0.019 -0.031 -0.006    0.03               not above by more than 0.03
+                                         K3 V - D      mass    f1 -0.024 -0.044 -0.002    0.05                  equivalent within +-0.05
+K3-ref V - D_ref (stage-1 runs with augmentation)      mass    f1 -0.029 -0.047 -0.009    0.05                  equivalent within +-0.05
+  D - D_ref (cached, no augmentation vs original)      mass    f1 -0.005 -0.013  0.004    0.03                  equivalent within +-0.03
+                       decomp: D - A_tf (encoder)      mass    f1  0.014 -0.004  0.032    0.03                              inconclusive
+                      decomp: V - A_tf (read-out)      mass    f1 -0.010 -0.025  0.005    0.03                  equivalent within +-0.03
+                                        V - A_lin      mass    f1  0.028  0.008  0.049    0.03                              inconclusive
+           step budget: V(v1, 4591) - V_ctl(2295)      mass    f1  0.039  0.029  0.047    0.03                              inconclusive
+                   V - V0 (fine-tuning gain, top)      mass    f1  0.209  0.175  0.242    0.05                   above by more than 0.05
+       K4 V gain per doubling, last two doublings      mass f4-f1  0.012  0.008  0.015    0.02 plateau (upper bound < 0.02 per doubling)
+                                K1 VP - A* (A_tf)      calc    f1  0.018  0.004  0.033    0.03                              inconclusive
+                                        K2 V - VP      calc    f1 -0.030 -0.049 -0.011    0.03               not above by more than 0.03
+                                         K3 V - D      calc    f1 -0.048 -0.073 -0.024    0.05               not above by more than 0.05
+K3-ref V - D_ref (stage-1 runs with augmentation)      calc    f1 -0.046 -0.071 -0.023    0.05               not above by more than 0.05
+  D - D_ref (cached, no augmentation vs original)      calc    f1  0.002 -0.008  0.012    0.03                  equivalent within +-0.03
+                       decomp: D - A_tf (encoder)      calc    f1  0.037  0.014  0.060    0.03                              inconclusive
+                      decomp: V - A_tf (read-out)      calc    f1 -0.011 -0.029  0.007    0.03                  equivalent within +-0.03
+                                        V - A_lin      calc    f1 -0.038 -0.060 -0.018    0.03               not above by more than 0.03
+           step budget: V(v1, 4591) - V_ctl(2295)      calc    f1  0.019  0.007  0.032    0.03                              inconclusive
+                   V - V0 (fine-tuning gain, top)      calc    f1  0.121  0.091  0.154    0.05                   above by more than 0.05
+       K4 V gain per doubling, last two doublings      calc f4-f1  0.014  0.006  0.022    0.02                              inconclusive
+                                K1 VP - A* (A_tf) asymmetry    f1  0.001 -0.012  0.014    0.03                  equivalent within +-0.03
+                                        K2 V - VP asymmetry    f1 -0.047 -0.065 -0.027    0.03               not above by more than 0.03
+                                         K3 V - D asymmetry    f1 -0.048 -0.069 -0.027    0.05               not above by more than 0.05
+K3-ref V - D_ref (stage-1 runs with augmentation) asymmetry    f1 -0.046 -0.068 -0.023    0.05               not above by more than 0.05
+  D - D_ref (cached, no augmentation vs original) asymmetry    f1  0.002 -0.007  0.010    0.03                  equivalent within +-0.03
+                       decomp: D - A_tf (encoder) asymmetry    f1  0.002 -0.014  0.019    0.03                  equivalent within +-0.03
+                      decomp: V - A_tf (read-out) asymmetry    f1 -0.046 -0.064 -0.026    0.03               not above by more than 0.03
+                                        V - A_lin asymmetry    f1 -0.027 -0.048 -0.004    0.03               not above by more than 0.03
+           step budget: V(v1, 4591) - V_ctl(2295) asymmetry    f1  0.036  0.024  0.047    0.03                              inconclusive
+                   V - V0 (fine-tuning gain, top) asymmetry    f1  0.109  0.083  0.136    0.05                   above by more than 0.05
+       K4 V gain per doubling, last two doublings asymmetry f4-f1  0.020  0.013  0.027    0.02                              inconclusive
+A* by size: {'f32': 'A_probe', 'f16': 'A_probe', 'f8': 'A_probe', 'f4': 'A_probe', 'f2': 'A_tf', 'f1': 'A_tf'}
+curve rows 120

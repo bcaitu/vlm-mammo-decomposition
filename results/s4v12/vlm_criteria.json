@@ -1,0 +1,30 @@
+{
+ "V1_1": {
+  "better": 1,
+  "noninf": 3,
+  "worse": 1,
+  "sets": 8,
+  "outcome": "no stable difference"
+ },
+ "V1_2": {
+  "better": 2,
+  "noninf": 4,
+  "worse": 1,
+  "sets": 7,
+  "outcome": "no stable difference"
+ },
+ "V1_3": {
+  "all_ok": false,
+  "max": 0.9577464788732394,
+  "passed": false
+ },
+ "V2_1": {
+  "eligible": 2,
+  "ok": 0,
+  "D": {
+   "test_cbis_ddsm": 0.21747482797312717,
+   "test_cmmd": 0.021515158966288844
+  },
+  "passed": false
+ }
+}

@@ -1,0 +1,7 @@
+python 3.10.12 torch 2.6.0+cu124 transformers 5.17.0 peft 0.21.0 sklearn 1.7.2 numpy 2.2.6 scipy 1.15.3
+2, NVIDIA H200, 590.48.01
+3, NVIDIA H200, 590.48.01
+4, NVIDIA H200, 590.48.01
+5, NVIDIA H200, 590.48.01
+6, NVIDIA H200, 590.48.01
+cgroup cpu.max (account quota): 2000000 100000

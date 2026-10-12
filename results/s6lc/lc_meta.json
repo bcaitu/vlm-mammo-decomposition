@@ -1,0 +1,23 @@
+{
+ "astar": {
+  "f32": "A_probe",
+  "f16": "A_probe",
+  "f8": "A_probe",
+  "f4": "A_probe",
+  "f2": "A_tf",
+  "f1": "A_tf"
+ },
+ "n_boot": 2000,
+ "arms_found": [
+  "A_lin",
+  "A_probe",
+  "A_tf",
+  "D",
+  "D_ref",
+  "V",
+  "V0",
+  "VP",
+  "V_blank",
+  "V_ctl"
+ ]
+}

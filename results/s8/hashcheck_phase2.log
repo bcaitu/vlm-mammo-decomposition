@@ -1,0 +1,5 @@
+prereg/s8_phase2_ru.md: OK
+runs_s8/lr_vis.txt: OK
+runs_s8/pilot_choice.json: OK
+runs_s8/pilot/lrvis2e-5/selected.json: OK
+runs_s8/pilot/lrvis1e-4/selected.json: OK

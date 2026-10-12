@@ -1,0 +1,6 @@
+# s7zoom phase 1 2026-10-07T14:38:25Z
+924890eb712cac07a3f7c9124e57535ad30fd94b58cca1d1921d2841c7f80fa6  analysis_embed/s7_windows.py
+90c87ced7a68e8d450f402a63ee800ae552a14176534a8fdfa34d33b62e32bd7  analysis_embed/s7_crop_feats.py
+fc8a19eeb59daf74f97215d9ce828a0af3f3709130fbaf117a6662d7b7a743b7  analysis_embed/s7_probe.py
+64d52b7adbfb3b538dfad9656de33a445fd90954d0f46ee0e80b8da310e034d5  runs_zoom/windows.json
+138e3534f881424409b6fa8e95f2549668d3277251d7d04de4b9c1e12e695990  prereg/s7zoom_prereg_ru.md

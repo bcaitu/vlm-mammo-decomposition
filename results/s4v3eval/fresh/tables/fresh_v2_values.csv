@@ -1,0 +1,16 @@
+split,metric,variant,n,value
+test_embed,det,orig,300,0.5416495198902607
+test_embed,det,swap,300,0.4885803619926165
+test_embed,det,blank,300,0.5
+test_embed_fuji,det,orig,300,0.5543060311154093
+test_embed_fuji,det,swap,300,0.5100517050058335
+test_embed_fuji,det,blank,300,0.5
+test_embed_ge,det,orig,300,0.5797950971105333
+test_embed_ge,det,swap,300,0.49993702875134644
+test_embed_ge,det,blank,300,0.5
+test_vindr,det,orig,300,0.5579401371856163
+test_vindr,det,swap,300,0.49705535924617195
+test_vindr,det,blank,300,0.5
+test_cmmd,auc,orig,300,0.5704574188415416
+test_cmmd,auc,swap,300,0.466434693519773
+test_cmmd,auc,blank,300,0.5

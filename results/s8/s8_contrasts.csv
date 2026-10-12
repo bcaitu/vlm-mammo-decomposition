@@ -1,0 +1,28 @@
+contrast,finding,kind,delta,lo,hi,verdict
+S1 VC - V (tower gain),mass,descriptive,0.010369837284088135,0.004302624147385359,0.0164688341319561,adds (lower bound > 0)
+S2 VC - D (gap to the stage-1 head),mass,descriptive,-0.014095962047576904,-0.033531010150909424,0.007207602262496948,unclear
+S3 V2x - V (step-budget gain),mass,descriptive,0.00875931978225708,0.0012033164966851473,0.016362523660063744,adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA),mass,descriptive,0.013796389102935791,0.003721061395481229,0.023509982973337173,adds (lower bound > 0)
+S5 VC - VCP (interface loss in the tower arm),mass,descriptive,-0.022228896617889404,-0.03336530923843384,-0.010997517965734005,below (upper bound < 0)
+VC - V2x,mass,descriptive,0.0016105175018310547,-0.007103426847606897,0.009703806601464748,equivalent within +-0.03
+VCP - A_probe,mass,descriptive,0.04144906997680664,0.021840399131178856,0.0603446364402771,adds (lower bound > 0)
+VCP - A_tf,mass,descriptive,0.022217512130737305,0.010010798461735249,0.03388064354658127,adds (lower bound > 0)
+V2x - D,mass,descriptive,-0.01570647954940796,-0.03448973596096039,0.005038240924477577,unclear
+S1 VC - V (tower gain),calc,confirmatory,-0.00488203763961792,-0.013627519831061363,0.0048279305920004845,equivalent within +-0.03
+S2 VC - D (gap to the stage-1 head),calc,confirmatory,-0.052869558334350586,-0.07683967053890228,-0.02803853526711464,below (upper bound < 0)
+S3 V2x - V (step-budget gain),calc,confirmatory,0.01653873920440674,0.00728997029364109,0.026208704337477684,adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA),calc,confirmatory,-0.013329863548278809,-0.0246054045855999,-0.0020818477496504784,equivalent within +-0.03
+S5 VC - VCP (interface loss in the tower arm),calc,descriptive,-0.021186888217926025,-0.03954057767987251,-0.0026465565897524357,below (upper bound < 0)
+VC - V2x,calc,descriptive,-0.021420776844024658,-0.033755719661712646,-0.00962120946496725,reduces (upper bound < 0)
+VCP - A_probe,calc,descriptive,-0.019439101219177246,-0.03374987840652466,-0.005817538592964411,reduces (upper bound < 0)
+VCP - A_tf,calc,descriptive,0.004908919334411621,-0.008333501406013966,0.019388770684599876,equivalent within +-0.03
+V2x - D,calc,descriptive,-0.03144878149032593,-0.0544758103787899,-0.008504807949066162,below (upper bound < 0)
+S1 VC - V (tower gain),asymmetry,confirmatory,0.02020508050918579,0.011167705059051514,0.029700065031647682,adds (lower bound > 0)
+S2 VC - D (gap to the stage-1 head),asymmetry,confirmatory,-0.02807927131652832,-0.04561568796634674,-0.009738534688949585,below (upper bound < 0)
+S3 V2x - V (step-budget gain),asymmetry,confirmatory,0.012921750545501709,0.0022855685092508793,0.023549538105726242,adds (lower bound > 0)
+S4 VCP - VP (linearly accessible information added by the tower LoRA),asymmetry,confirmatory,0.014920592308044434,0.0050584240816533566,0.024111539125442505,adds (lower bound > 0)
+S5 VC - VCP (interface loss in the tower arm),asymmetry,descriptive,-0.04150807857513428,-0.05523254722356796,-0.02685905434191227,below (upper bound < 0)
+VC - V2x,asymmetry,descriptive,0.007283329963684082,-0.003062601201236248,0.01738504134118557,equivalent within +-0.03
+VCP - A_probe,asymmetry,descriptive,0.018372297286987305,0.0037819237913936377,0.03153405711054802,adds (lower bound > 0)
+VCP - A_tf,asymmetry,descriptive,0.015867888927459717,0.004301616456359625,0.0278096292167902,adds (lower bound > 0)
+V2x - D,asymmetry,descriptive,-0.0353626012802124,-0.052620600908994675,-0.016390515491366386,below (upper bound < 0)

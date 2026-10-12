@@ -1,0 +1,7 @@
+final pipeline start 2026-10-09 13:25:42
+queue finished 2026-10-09 17:26:43
+precheck pass 2026-10-09 17:26:45
+hash check: main failed=1 (only s8_analysis.py: 1), phase2 failed=0, dev1 failed=0, orig==recorded: yes
+analysis rc=0 2026-10-09 17:27:08
+wrote runs_s8/analysis/run_meta.json 8 train logs
+final pipeline done 2026-10-09 17:27:08

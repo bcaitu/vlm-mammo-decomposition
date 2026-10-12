@@ -1,0 +1,395 @@
+id,finding,value,lo,hi,source,status
+AUC_V0,calc,0.5788360238075256,0.5454088449478149,0.610995352268219,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V0,asymmetry,0.525394082069397,0.5037916302680969,0.5456355214118958,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V0,mass,0.6139509081840515,0.5797755122184753,0.6483839750289917,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_blank,calc,0.5119715929031372,0.4562099277973175,0.563823401927948,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_blank,asymmetry,0.4724356234073639,0.4312455058097839,0.5124326944351196,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_blank,mass,0.5201842188835144,0.4584859013557434,0.581132709980011,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_ctl,calc,0.6802356243133545,0.650881290435791,0.7101754546165466,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_ctl,asymmetry,0.5987226963043213,0.5773010849952698,0.6205334663391113,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V_ctl,mass,0.7841513156890869,0.7591751217842102,0.8088877201080322,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V,calc,0.6995729804039001,0.6688188314437866,0.7295049428939819,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V,asymmetry,0.634528636932373,0.6144648790359497,0.6553007364273071,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V,mass,0.8226604461669922,0.7982662320137024,0.8464295268058777,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_V2x,calc,0.7161117196083069,0.6870467066764832,0.7442258596420288,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_V2x,asymmetry,0.6474503874778748,0.628947913646698,0.6654132604598999,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_V2x,mass,0.8314197659492493,0.8072617053985596,0.8544231057167053,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VC,calc,0.6946909427642822,0.6656486988067627,0.7247148752212524,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VC,asymmetry,0.6547337174415588,0.6358779668807983,0.6736574172973633,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VC,mass,0.8330302834510803,0.8101475238800049,0.8562012910842896,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VP,calc,0.7292076945304871,0.6999192833900452,0.7581062912940979,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_VP,asymmetry,0.6813212037086487,0.661587119102478,0.7001308798789978,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_VP,mass,0.8414627909660339,0.8200313448905945,0.8624966740608215,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_VCP,calc,0.7158778309822083,0.6875446438789368,0.7443418502807617,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VCP,asymmetry,0.6962417960166931,0.6773397922515869,0.7136216163635254,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_VCP,mass,0.8552591800689697,0.8332661390304565,0.8758681416511536,s8_auc.csv,"seed mean AUC, 95% interval over test patients"
+AUC_A_lin,calc,0.7379208207130432,0.7074368000030518,0.7679992318153381,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_lin,asymmetry,0.6610402464866638,0.6387999653816223,0.6815616488456726,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_lin,mass,0.7947093844413757,0.7704187631607056,0.8185245394706726,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_probe,calc,0.7353169322013855,0.7049885392189026,0.7642207145690918,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_probe,asymmetry,0.6778694987297058,0.6566323637962341,0.6989184021949768,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_probe,mass,0.8138101100921631,0.7896584272384644,0.83689284324646,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_tf,calc,0.7109689116477966,0.6793451905250549,0.7428324818611145,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_tf,asymmetry,0.6803739070892334,0.6606788635253906,0.699403703212738,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_A_tf,mass,0.8330416679382324,0.8093250393867493,0.8546929359436035,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D,calc,0.7475605010986328,0.7193827629089355,0.775428295135498,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D,asymmetry,0.6828129887580872,0.6639063358306885,0.7006582021713257,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D,mass,0.8471262454986572,0.8243793249130249,0.8690902590751648,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D_ref,calc,0.7455506920814514,0.7163501977920532,0.7746585011482239,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D_ref,asymmetry,0.6809060573577881,0.6617464423179626,0.7005270719528198,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+AUC_D_ref,mass,0.851650059223175,0.8299404978752136,0.8725276589393616,s6lc lc_curve.csv (f1),"seed mean AUC, 95% interval over test patients"
+K1,calc,0.0182387828826904,0.0037496075965464,0.0330204963684082,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K1,asymmetry,0.0009472966194152,-0.0118410475552082,0.0136480769142508,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K1,mass,0.0084211230278015,-0.0038713095709681,0.020138930529356,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered (descriptive for mass)
+K2,calc,-0.0296347141265869,-0.049330934882164,-0.0108144273981451,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K2,asymmetry,-0.0467925667762756,-0.0653705969452858,-0.0271231643855571,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K2,mass,-0.0188023447990417,-0.0306651405990123,-0.006392621435225,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered (descriptive for mass)
+K3,calc,-0.0479875206947326,-0.0725869163870811,-0.0236545521765947,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K3,asymmetry,-0.0482843518257141,-0.0694048255681991,-0.0269577428698539,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K3,mass,-0.024465799331665,-0.0440142080187797,-0.0024399405810981,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered (descriptive for mass)
+K4,calc,0.0137937664985656,0.0059844865463674,0.0219926722347736,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K4,asymmetry,0.0200566947460174,0.0130820870399475,0.0267298035323619,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered
+K4,mass,0.0115454196929931,0.007854463532567,0.0153557015582919,s6lc lc_contrasts.csv (f1; K4: f4-f1),preregistered (descriptive for mass)
+DESC_V-Vctl,calc,0.0193373560905456,0.0068955975584685,0.0321876481175422,"s6lc lc_contrasts.csv (f1; step budget, V minus V_ctl)",pre-specified descriptive contrast (s6lc protocol); same quantity as post hoc P3 of s8
+DESC_V-Vctl,asymmetry,0.0358059406280517,0.0243035275489091,0.046921033412218,"s6lc lc_contrasts.csv (f1; step budget, V minus V_ctl)",pre-specified descriptive contrast (s6lc protocol); same quantity as post hoc P3 of s8
+DESC_V-Vctl,mass,0.0385091304779052,0.0294121634215116,0.047457218170166,"s6lc lc_contrasts.csv (f1; step budget, V minus V_ctl)",pre-specified descriptive contrast (s6lc protocol); same quantity as post hoc P3 of s8
+S1,calc,-0.0048820376396179,-0.0136275198310613,0.0048279305920004,s8_contrasts.csv,confirmatory
+S1,asymmetry,0.0202050805091857,0.0111677050590515,0.0297000650316476,s8_contrasts.csv,confirmatory
+S1,mass,0.0103698372840881,0.0043026241473853,0.0164688341319561,s8_contrasts.csv,descriptive
+S2,calc,-0.0528695583343505,-0.0768396705389022,-0.0280385352671146,s8_contrasts.csv,confirmatory
+S2,asymmetry,-0.0280792713165283,-0.0456156879663467,-0.0097385346889495,s8_contrasts.csv,confirmatory
+S2,mass,-0.0140959620475769,-0.0335310101509094,0.0072076022624969,s8_contrasts.csv,descriptive
+S3,calc,0.0165387392044067,0.007289970293641,0.0262087043374776,s8_contrasts.csv,confirmatory
+S3,asymmetry,0.0129217505455017,0.0022855685092508,0.0235495381057262,s8_contrasts.csv,confirmatory
+S3,mass,0.008759319782257,0.0012033164966851,0.0163625236600637,s8_contrasts.csv,descriptive
+S4,calc,-0.0133298635482788,-0.0246054045855999,-0.0020818477496504,s8_contrasts.csv,confirmatory
+S4,asymmetry,0.0149205923080444,0.0050584240816533,0.0241115391254425,s8_contrasts.csv,confirmatory
+S4,mass,0.0137963891029357,0.0037210613954812,0.0235099829733371,s8_contrasts.csv,descriptive
+S5,calc,-0.021186888217926,-0.0395405776798725,-0.0026465565897524,s8_contrasts.csv,descriptive
+S5,asymmetry,-0.0415080785751342,-0.0552325472235679,-0.0268590543419122,s8_contrasts.csv,descriptive
+S5,mass,-0.0222288966178894,-0.0333653092384338,-0.010997517965734,s8_contrasts.csv,descriptive
+V2x-D,calc,-0.0314487814903259,-0.0544758103787899,-0.0085048079490661,s8_contrasts.csv,descriptive
+V2x-D,asymmetry,-0.0353626012802124,-0.0526206009089946,-0.0163905154913663,s8_contrasts.csv,descriptive
+V2x-D,mass,-0.0157064795494079,-0.0344897359609603,0.0050382409244775,s8_contrasts.csv,descriptive
+VC-V2x,calc,-0.0214207768440246,-0.0337557196617126,-0.0096212094649672,s8_contrasts.csv,descriptive
+VC-V2x,asymmetry,0.007283329963684,-0.0030626012012362,0.0173850413411855,s8_contrasts.csv,descriptive
+VC-V2x,mass,0.001610517501831,-0.0071034268476068,0.0097038066014647,s8_contrasts.csv,descriptive
+P1,calc,-0.0183528065681457,-0.0389789603650569,0.0030471342615783,s8_posthoc.csv,post hoc
+P1,asymmetry,-0.0014917850494384,-0.0166077353060245,0.0150360632687807,s8_posthoc.csv,post hoc
+P1,mass,-0.0056634545326232,-0.0223973672837018,0.0124127920717,s8_posthoc.csv,post hoc
+P2,calc,-0.0316826701164245,-0.0501785427331924,-0.0122984061017632,s8_posthoc.csv,post hoc
+P2,asymmetry,0.0134288072586059,-0.0009978502057492,0.0275477115064859,s8_posthoc.csv,post hoc
+P2,mass,0.0081329345703125,-0.0077734244987368,0.0246074274182319,s8_posthoc.csv,post hoc
+P3,calc,0.0193373560905456,0.0068955975584685,0.0321876481175422,s8_posthoc.csv,post hoc
+P3,asymmetry,0.0358059406280517,0.0243035275489091,0.046921033412218,s8_posthoc.csv,post hoc
+P3,mass,0.0385091304779052,0.0294121634215116,0.047457218170166,s8_posthoc.csv,post hoc
+P4,calc,0.0165387392044067,0.007289970293641,0.0262087043374776,s8_posthoc.csv,post hoc
+P4,asymmetry,0.0129217505455017,0.0022855685092508,0.0235495381057262,s8_posthoc.csv,post hoc
+P4,mass,0.008759319782257,0.0012033164966851,0.0163625236600637,s8_posthoc.csv,post hoc
+P5,calc,0.0358760952949523,0.0186525136232376,0.0539267510175704,s8_posthoc.csv,post hoc
+P5,asymmetry,0.0487276911735534,0.0323043502867221,0.0667456537485122,s8_posthoc.csv,post hoc
+P5,mass,0.0472684502601623,0.0333942882716655,0.0607525296509265,s8_posthoc.csv,post hoc
+P6,calc,-0.0027986168861389,-0.0166706759482622,0.0116052962839603,s8_posthoc.csv,post hoc
+P6,asymmetry,-0.02288419008255,-0.0367185771465301,-0.0087780710309743,s8_posthoc.csv,post hoc
+P6,mass,-0.0297498106956481,-0.0395016558468341,-0.0197764653712511,s8_posthoc.csv,post hoc
+GAP_A_probe-D,calc,-0.0122435688972473,-0.0339642651379108,0.0115473335608839,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_A_probe-D,asymmetry,-0.0049434900283813,-0.0216450933367013,0.0143293738365173,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_A_probe-D,mass,-0.0333161354064941,-0.0547095350921154,-0.0104147177189588,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_A_tf-D,calc,-0.0365915894508361,-0.0596905164420604,-0.0139802359044551,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_A_tf-D,asymmetry,-0.0024390816688537,-0.0188113097101449,0.0135505748912692,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_A_tf-D,mass,-0.0140845775604248,-0.0320507287979126,0.0043225465342402,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VP-D,calc,-0.0183528065681457,-0.0389789603650569,0.0030471342615783,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VP-D,asymmetry,-0.0014917850494384,-0.0166077353060245,0.0150360632687807,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VP-D,mass,-0.0056634545326232,-0.0223973672837018,0.0124127920717,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VCP-D,calc,-0.0316826701164245,-0.0501785427331924,-0.0122984061017632,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VCP-D,asymmetry,0.0134288072586059,-0.0009978502057492,0.0275477115064859,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VCP-D,mass,0.0081329345703125,-0.0077734244987368,0.0246074274182319,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V_ctl-D,calc,-0.0673248767852783,-0.0944102853536605,-0.0410877652466297,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V_ctl-D,asymmetry,-0.0840902924537658,-0.1085169315338134,-0.0598636828362941,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V_ctl-D,mass,-0.0629749298095703,-0.0859313458204269,-0.0383853837847709,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V-D,calc,-0.0479875206947326,-0.0725869163870811,-0.0236545521765947,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V-D,asymmetry,-0.0482843518257141,-0.0694048255681991,-0.0269577428698539,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V-D,mass,-0.024465799331665,-0.0440142080187797,-0.0024399405810981,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V2x-D,calc,-0.0314487814903259,-0.0544758103787899,-0.0085048079490661,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V2x-D,asymmetry,-0.0353626012802124,-0.0526206009089946,-0.0163905154913663,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_V2x-D,mass,-0.0157064795494079,-0.0344897359609603,0.0050382409244775,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VC-D,calc,-0.0528695583343505,-0.0768396705389022,-0.0280385352671146,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VC-D,asymmetry,-0.0280792713165283,-0.0456156879663467,-0.0097385346889495,s8_posthoc2_gap_to_D.csv,post hoc
+GAP_VC-D,mass,-0.0140959620475769,-0.0335310101509094,0.0072076022624969,s8_posthoc2_gap_to_D.csv,post hoc
+COUNT_pool_cbis_ddsm_rows,,1208.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_pool_cbis_ddsm_patients,,1109.0,,,same,count
+COUNT_pool_cbis_ddsm_positives,mass,642.0,,,same,count
+COUNT_pool_cbis_ddsm_positives,calc,587.0,,,same,count
+COUNT_pool_cbis_ddsm_positives,asymmetry,24.0,,,same,count
+COUNT_pool_vindr_rows,,7180.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_pool_vindr_patients,,3590.0,,,same,count
+COUNT_pool_vindr_positives,mass,447.0,,,same,count
+COUNT_pool_vindr_positives,calc,157.0,,,same,count
+COUNT_pool_vindr_positives,asymmetry,177.0,,,same,count
+COUNT_pool_embed_rows,,65082.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_pool_embed_patients,,13441.0,,,same,count
+COUNT_pool_embed_positives,mass,2553.0,,,same,count
+COUNT_pool_embed_positives,calc,2971.0,,,same,count
+COUNT_pool_embed_positives,asymmetry,4954.0,,,same,count
+COUNT_pool_total_rows,,73470.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_pool_total_patients,,18140.0,,,same,count
+COUNT_pool_total_positives,mass,3642.0,,,same,count
+COUNT_pool_total_positives,calc,3715.0,,,same,count
+COUNT_pool_total_positives,asymmetry,5155.0,,,same,count
+COUNT_val_sample_embed_rows,,2000.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_val_sample_embed_patients,,1050.0,,,same,count
+COUNT_val_sample_embed_positives,mass,85.0,,,same,count
+COUNT_val_sample_embed_positives,calc,80.0,,,same,count
+COUNT_val_sample_embed_positives,asymmetry,134.0,,,same,count
+COUNT_test_embed_rows,,13178.0,,,"server runs_lc/sets/meta.json (aggregate counts, 2026-10-09)",count
+COUNT_test_embed_patients,,2743.0,,,same,count
+COUNT_test_embed_positives,mass,520.0,,,same,count
+COUNT_test_embed_positives,calc,570.0,,,same,count
+COUNT_test_embed_positives,asymmetry,1038.0,,,same,count
+RES_gain_1792_896,mass,0.0748649343967069,0.0187892047753946,0.1349366585352353,s4res res_main.csv,preregistered (rule: unclear)
+RES_gain_1792_896,calc,0.0271527777777779,-0.0025860549215446,0.0613288259003851,s4res res_main.csv,preregistered (rule: unclear)
+RES_gain_1792_896,asymmetry,0.0025295508274231,-0.0755922817731955,0.0773150153918504,s4res res_main.csv,preregistered (rule: unclear)
+VD_f32,calc,0.0106116533279418,-0.0142863802611827,0.0368891805410385,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f32,calc,0.6275224089622498,0.6040871143341064,0.6523969769477844,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f32,calc,0.6169107556343079,0.5920719504356384,0.6408947706222534,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f32,asymmetry,0.0028362274169921,-0.0195917058736085,0.025129759684205,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f32,asymmetry,0.5732285380363464,0.5547255277633667,0.5930413603782654,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f32,asymmetry,0.5703923106193542,0.5541337728500366,0.587249219417572,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f32,mass,0.0716239213943481,0.049468494951725,0.0935970023274421,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f32,mass,0.7656508088111877,0.7429644465446472,0.7888319492340088,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f32,mass,0.6940268874168396,0.6717744469642639,0.7160972952842712,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f16,calc,0.0132281780242919,-0.0115061616525053,0.0361162088811397,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f16,calc,0.6518595814704895,0.6252942681312561,0.677753746509552,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f16,calc,0.6386314034461975,0.6133133769035339,0.6641900539398193,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f16,asymmetry,-0.019826054573059,-0.0394648201763629,0.0010252041975036,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f16,asymmetry,0.5819041728973389,0.5646453499794006,0.5991265773773193,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f16,asymmetry,0.601730227470398,0.5853210687637329,0.6183944344520569,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f16,mass,0.0048962235450744,-0.0157353524118661,0.024659376591444,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f16,mass,0.7611587047576904,0.7371179461479187,0.7836691737174988,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f16,mass,0.756262481212616,0.7338770627975464,0.7784789800643921,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f8,calc,-0.0012741088867187,-0.0269252024590969,0.0217353384941816,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f8,calc,0.6690691113471985,0.6429428458213806,0.6964929699897766,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f8,calc,0.6703432202339172,0.6438503861427307,0.6980244517326355,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f8,asymmetry,-0.0128995776176452,-0.0337424129247665,0.0091736484318971,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f8,asymmetry,0.6038983464241028,0.5857037305831909,0.6220985651016235,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f8,asymmetry,0.616797924041748,0.5995590090751648,0.63421630859375,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f8,mass,0.003106951713562,-0.0163015387952327,0.0233856402337551,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f8,mass,0.8006322979927063,0.7765756249427795,0.8236409425735474,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f8,mass,0.7975253462791443,0.7751946449279785,0.8198645710945129,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f4,calc,-0.0226607322692871,-0.048252910375595,0.002181553049013,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f4,calc,0.6719854474067688,0.6431112289428711,0.7019643783569336,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f4,calc,0.6946461796760559,0.6681330800056458,0.7223225235939026,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f4,asymmetry,-0.0476282835006713,-0.0700723603367805,-0.0248067826032638,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f4,asymmetry,0.5944152474403381,0.5730336904525757,0.615699291229248,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f4,asymmetry,0.6420435309410095,0.6245756149291992,0.6597194671630859,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f4,mass,-0.0097126960754394,-0.0297040324658155,0.0127973454073071,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f4,mass,0.7995696067810059,0.7738543748855591,0.8235110640525818,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f4,mass,0.8092823028564453,0.7868455648422241,0.8314687609672546,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f2,calc,-0.0555936098098754,-0.0816408470273017,-0.0315653011202812,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f2,calc,0.6754899621009827,0.6463282704353333,0.7050676941871643,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f2,calc,0.7310835719108582,0.7036561965942383,0.7584545016288757,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f2,asymmetry,-0.0679414272308349,-0.0916256606578826,-0.0441350452601909,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f2,asymmetry,0.598181426525116,0.5764707922935486,0.6195226907730103,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f2,asymmetry,0.6661228537559509,0.647553563117981,0.6841229200363159,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f2,mass,-0.0437657237052917,-0.0650998502969741,-0.0223686564713716,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f2,mass,0.7920072674751282,0.7676237225532532,0.8165483474731445,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f2,mass,0.8357729911804199,0.8137060403823853,0.8571645021438599,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f1,calc,-0.0479875206947326,-0.0725869163870811,-0.0236545521765947,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f1,calc,0.6995729804039001,0.6688188314437866,0.7295049428939819,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f1,calc,0.7475605010986328,0.7193827629089355,0.775428295135498,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f1,asymmetry,-0.0482843518257141,-0.0694048255681991,-0.0269577428698539,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f1,asymmetry,0.634528636932373,0.6144648790359497,0.6553007364273071,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f1,asymmetry,0.6828129887580872,0.6639063358306885,0.7006582021713257,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+VD_f1,mass,-0.024465799331665,-0.0440142080187797,-0.0024399405810981,s6lc lc_contrasts.csv (K3 rows by size),descriptive at sizes other than f1
+LCSIZE_V_f1,mass,0.8226604461669922,0.7982662320137024,0.8464295268058777,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+LCSIZE_D_f1,mass,0.8471262454986572,0.8243793249130249,0.8690902590751648,s6lc lc_curve.csv,"seed mean AUC, 95% interval over test patients"
+SLOPE_D_f4f1,calc,0.026457160711288452,,,computed from lc_curve.csv,post hoc point estimate per doubling
+SLOPE_V_f4f1_equal_budget,calc,0.004125088453292847,,,"computed from lc_curve.csv (V_ctl at f1, 2,295 steps, against V at f4)",post hoc point estimate per doubling
+SLOPE_V_f4f1_k4,calc,0.013793766498565674,,,"computed from lc_curve.csv (V at f1 with 4,591 steps)",point estimate; K4 interval in the K4 rows
+SLOPE_D_f4f1,asymmetry,0.02038472890853882,,,computed from lc_curve.csv,post hoc point estimate per doubling
+SLOPE_V_f4f1_equal_budget,asymmetry,0.002153724431991577,,,"computed from lc_curve.csv (V_ctl at f1, 2,295 steps, against V at f4)",post hoc point estimate per doubling
+SLOPE_V_f4f1_k4,asymmetry,0.020056694746017456,,,"computed from lc_curve.csv (V at f1 with 4,591 steps)",point estimate; K4 interval in the K4 rows
+SLOPE_D_f4f1,mass,0.018921971321105957,,,computed from lc_curve.csv,post hoc point estimate per doubling
+SLOPE_V_f4f1_equal_budget,mass,-0.007709145545959473,,,"computed from lc_curve.csv (V_ctl at f1, 2,295 steps, against V at f4)",post hoc point estimate per doubling
+SLOPE_V_f4f1_k4,mass,0.011545419692993164,,,"computed from lc_curve.csv (V at f1 with 4,591 steps)",point estimate; K4 interval in the K4 rows
+V12_M1_vlm,test_cbis_ddsm,0.6436287734112761,,,s4v12 posthoc_prior.csv,"M1; n = 369 rows, 8 heads"
+V12_M1_cb,test_cbis_ddsm,0.6886289440190789,,,s4v12 posthoc_prior.csv,"M1; n = 369 rows, 8 heads"
+V12_M1_v0,test_cbis_ddsm,0.0562810409803334,,,s4v12 posthoc_prior.csv,"M1; n = 369 rows, 8 heads"
+V12_M1_prior_global,test_cbis_ddsm,0.2482444583169074,,,s4v12 posthoc_prior.csv,"M1; n = 369 rows, 8 heads"
+V12_M1_vlm,test_cdd_cesm,0.550438879877435,,,s4v12 posthoc_prior.csv,"M1; n = 566 rows, 9 heads"
+V12_M1_cb,test_cdd_cesm,0.5960273683909333,,,s4v12 posthoc_prior.csv,"M1; n = 566 rows, 9 heads"
+V12_M1_v0,test_cdd_cesm,0.2236904341969124,,,s4v12 posthoc_prior.csv,"M1; n = 566 rows, 9 heads"
+V12_M1_prior_global,test_cdd_cesm,0.6102072108668104,,,s4v12 posthoc_prior.csv,"M1; n = 566 rows, 9 heads"
+V12_M1_vlm,test_cmmd,0.2183009512244484,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 2 heads"
+V12_M1_cb,test_cmmd,0.4957688221007894,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 2 heads"
+V12_M1_v0,test_cmmd,0.1839803430479659,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 2 heads"
+V12_M1_prior_global,test_cmmd,0.0,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 2 heads"
+V12_M1_vlm,test_embed,0.8028159503959431,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_cb,test_embed,0.7992088044320892,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_v0,test_embed,0.2845209462495864,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_prior_global,test_embed,0.8323751113591039,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_vlm,test_embed_fuji,0.794952744538702,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_cb,test_embed_fuji,0.7494873225679092,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_v0,test_embed_fuji,0.3192457090423574,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_prior_global,test_embed_fuji,0.8646822819731719,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 7 heads"
+V12_M1_vlm,test_embed_ge,0.6508303242881558,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 9 heads"
+V12_M1_cb,test_embed_ge,0.6717609745222249,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 9 heads"
+V12_M1_v0,test_embed_ge,0.2523365668860449,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 9 heads"
+V12_M1_prior_global,test_embed_ge,0.7905262251608633,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 9 heads"
+V12_M1_vlm,test_inbreast,0.5958375573975788,,,s4v12 posthoc_prior.csv,"M1; n = 410 rows, 6 heads"
+V12_M1_cb,test_inbreast,0.6339030022329563,,,s4v12 posthoc_prior.csv,"M1; n = 410 rows, 6 heads"
+V12_M1_v0,test_inbreast,0.395291907686803,,,s4v12 posthoc_prior.csv,"M1; n = 410 rows, 6 heads"
+V12_M1_prior_global,test_inbreast,0.5582284771502972,,,s4v12 posthoc_prior.csv,"M1; n = 410 rows, 6 heads"
+V12_M1_vlm,test_vindr,0.9008333333333334,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 6 heads"
+V12_M1_cb,test_vindr,0.8994722222222222,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 6 heads"
+V12_M1_v0,test_vindr,0.5293333333333333,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 6 heads"
+V12_M1_prior_global,test_vindr,0.8861666666666667,,,s4v12 posthoc_prior.csv,"M1; n = 1000 rows, 6 heads"
+V12_n_sets_constant_above_vlm,,4.0,,,computed from posthoc_prior.csv,count of 8 sets
+COUNT_v12_test_rows,,6345.0,,,computed from s4v12 posthoc_prior.csv (sum of n over 8 sets),count
+V12_V11_better,,1.0,,,s4v12 vlm_criteria.json,pre-registered rule V1-1: number of sets
+V12_V11_noninf,,3.0,,,s4v12 vlm_criteria.json,pre-registered rule V1-1: number of sets
+V12_V11_worse,,1.0,,,s4v12 vlm_criteria.json,pre-registered rule V1-1: number of sets
+V12_V11_sets,,8.0,,,s4v12 vlm_criteria.json,pre-registered rule V1-1: number of sets
+V12_V13_max_omission,,0.9577464788732394,,,s4v12 vlm_criteria.json,pre-registered limit 0.10
+V12_V21_eligible_sets,,2.0,,,s4v12 vlm_criteria.json,pre-registered requirement: 5 eligible sets
+FRESH_det_vlm,test_embed,0.5348873997059489,,,s4v3eval fresh_main.csv,"n = 1000, patients = 741"
+FRESH_det_cb,test_embed,0.650618105324584,,,s4v3eval fresh_main.csv,"n = 1000, patients = 741"
+FRESH_det_diff,test_embed,-0.115730705618635,-0.133517030071046,-0.097263523859488,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_det_n,test_embed,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_det_patients,test_embed,741.0,,,s4v3eval fresh_main.csv,patients
+FRESH_cat_vlm,test_embed,0.3545144735024494,,,s4v3eval fresh_main.csv,"n = 1000, patients = 741"
+FRESH_cat_cb,test_embed,0.4569551329320869,,,s4v3eval fresh_main.csv,"n = 1000, patients = 741"
+FRESH_cat_diff,test_embed,-0.1024406594296374,-0.1292309056883777,-0.076587646102158,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_cat_n,test_embed,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_cat_patients,test_embed,741.0,,,s4v3eval fresh_main.csv,patients
+FRESH_det_vlm,test_embed_fuji,0.553195225832309,,,s4v3eval fresh_main.csv,"n = 681, patients = 399"
+FRESH_det_cb,test_embed_fuji,0.6631038012089453,,,s4v3eval fresh_main.csv,"n = 681, patients = 399"
+FRESH_det_diff,test_embed_fuji,-0.1099085753766363,-0.1468717492317048,-0.073915128656241,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_det_n,test_embed_fuji,681.0,,,s4v3eval fresh_main.csv,rows
+FRESH_det_patients,test_embed_fuji,399.0,,,s4v3eval fresh_main.csv,patients
+FRESH_cat_vlm,test_embed_fuji,0.499017094017094,,,s4v3eval fresh_main.csv,"n = 681, patients = 399"
+FRESH_cat_cb,test_embed_fuji,0.613431623931624,,,s4v3eval fresh_main.csv,"n = 681, patients = 399"
+FRESH_cat_diff,test_embed_fuji,-0.11441452991453,-0.1579756757540453,-0.0698564343029602,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_cat_n,test_embed_fuji,681.0,,,s4v3eval fresh_main.csv,rows
+FRESH_cat_patients,test_embed_fuji,399.0,,,s4v3eval fresh_main.csv,patients
+FRESH_det_vlm,test_embed_ge,0.5560365696157472,,,s4v3eval fresh_main.csv,"n = 1000, patients = 814"
+FRESH_det_cb,test_embed_ge,0.6542126258696094,,,s4v3eval fresh_main.csv,"n = 1000, patients = 814"
+FRESH_det_diff,test_embed_ge,-0.0981760562538621,-0.1181015583707579,-0.0787848236374152,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_det_n,test_embed_ge,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_det_patients,test_embed_ge,814.0,,,s4v3eval fresh_main.csv,patients
+FRESH_cat_vlm,test_embed_ge,0.3441985435833166,,,s4v3eval fresh_main.csv,"n = 1000, patients = 814"
+FRESH_cat_cb,test_embed_ge,0.4324252091106743,,,s4v3eval fresh_main.csv,"n = 1000, patients = 814"
+FRESH_cat_diff,test_embed_ge,-0.0882266655273577,-0.1071185115455453,-0.068817163207681,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_cat_n,test_embed_ge,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_cat_patients,test_embed_ge,814.0,,,s4v3eval fresh_main.csv,patients
+FRESH_det_vlm,test_vindr,0.5562354187063939,,,s4v3eval fresh_main.csv,"n = 1000, patients = 760"
+FRESH_det_cb,test_vindr,0.5821855799533256,,,s4v3eval fresh_main.csv,"n = 1000, patients = 760"
+FRESH_det_diff,test_vindr,-0.0259501612469317,-0.0443833281725534,-0.008557202615766,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_det_n,test_vindr,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_det_patients,test_vindr,760.0,,,s4v3eval fresh_main.csv,patients
+FRESH_cat_vlm,test_vindr,0.2947839031954907,,,s4v3eval fresh_main.csv,"n = 1000, patients = 760"
+FRESH_cat_cb,test_vindr,0.2654280675962993,,,s4v3eval fresh_main.csv,"n = 1000, patients = 760"
+FRESH_cat_diff,test_vindr,0.0293558355991913,0.004667350259881,0.0563770866500665,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_cat_n,test_vindr,1000.0,,,s4v3eval fresh_main.csv,rows
+FRESH_cat_patients,test_vindr,760.0,,,s4v3eval fresh_main.csv,patients
+FRESH_auc_vlm,test_cmmd,0.5713293544825011,,,s4v3eval fresh_main.csv,"n = 867, patients = 844"
+FRESH_auc_cb,test_cmmd,0.7087556915337622,,,s4v3eval fresh_main.csv,"n = 867, patients = 844"
+FRESH_auc_diff,test_cmmd,-0.137426337051261,-0.1620464407750369,-0.1132471327970554,s4v3eval fresh_main.csv,preregistered (VLM minus concept route)
+FRESH_auc_n,test_cmmd,867.0,,,s4v3eval fresh_main.csv,rows
+FRESH_auc_patients,test_cmmd,844.0,,,s4v3eval fresh_main.csv,patients
+FRESH_sens_vlm_min,mass,0.2041343669250646,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_vlm_max,mass,0.2857142857142857,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_min,mass,0.5219638242894057,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_max,mass,0.623015873015873,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_spec_vlm_min,mass,0.9773333333333332,,,s4v3eval fresh_slots.csv,specificity
+FRESH_spec_vlm_max,mass,0.9940357852882704,,,s4v3eval fresh_slots.csv,specificity
+FRESH_sens_vlm_min,calc,0.0111111111111111,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_vlm_max,calc,0.0590277777777777,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_min,calc,0.2583333333333333,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_max,calc,0.3907103825136612,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_spec_vlm_min,calc,0.9793333333333332,,,s4v3eval fresh_slots.csv,specificity
+FRESH_spec_vlm_max,calc,0.99402390438247,,,s4v3eval fresh_slots.csv,specificity
+FRESH_sens_vlm_min,asymmetry,0.0113207547169811,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_vlm_max,asymmetry,0.0543633762517882,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_min,asymmetry,0.3169811320754717,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_sens_cb_max,asymmetry,0.3791130185979971,,,s4v3eval fresh_slots.csv (3 EMBED sets),sensitivity of greedy report
+FRESH_spec_vlm_min,asymmetry,0.98,,,s4v3eval fresh_slots.csv,specificity
+FRESH_spec_vlm_max,asymmetry,0.9946984758117958,,,s4v3eval fresh_slots.csv,specificity
+FRESH_spec_vlm_overall_min,,0.9773333333333332,,,s4v3eval fresh_slots.csv (3 EMBED sets x 3 findings),specificity of greedy report
+FRESH_spec_vlm_overall_max,,0.9946984758117958,,,s4v3eval fresh_slots.csv (3 EMBED sets x 3 findings),specificity of greedy report
+DIAG_probe,mass,0.7739259068690507,0.7068611396484178,0.8316116245612722,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_ownscore,mass,0.7885151359231627,0.7194644314146194,0.8500425688975999,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_head,mass,0.8900501672240801,0.8459494423898397,0.9261320015549088,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_base,mass,0.6135194237200926,0.5415513188978148,0.6805297663785803,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens,mass,0.2211538461538461,0.1461056001679525,0.2867538005190952,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_spec,mass,0.9888517279821628,0.9770825785024154,0.9978700745473909,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_probe_head,mass,-0.1161242603550294,-0.1698104007363955,-0.0725356880477367,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_own_head,mass,-0.1015350313009174,-0.1546105066070512,-0.0595181475094672,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens90_logit,mass,0.5192307692307692,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_probe,mass,0.5256410256410257,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_s1,mass,0.6923076923076923,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_npos_test,mass,104.0,,,s4diag diag_main.csv,positives in test part
+DIAG_nneg_test,mass,299.0,,,s4diag diag_main.csv,negatives in test part
+DIAG_probe,calc,0.6455787037037037,0.5720533555065571,0.7188565305853303,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_ownscore,calc,0.6591666666666667,0.5921243150343883,0.7290000988152057,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_head,calc,0.7530555555555555,0.6747064491685447,0.8230469825020641,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_base,calc,0.64,0.5586755364051236,0.7225787637639179,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens,calc,0.0486111111111111,0.009253003003003,0.0996353973550858,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_spec,calc,0.99,0.9788984648532184,0.9989486401049548,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_probe_head,calc,-0.1074768518518517,-0.171725548666637,-0.0386066941254455,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_own_head,calc,-0.0938888888888888,-0.1502643056947903,-0.0342395707325267,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens90_logit,calc,0.21875,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_probe,calc,0.2430555555555555,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_s1,calc,0.40625,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_npos_test,calc,96.0,,,s4diag diag_main.csv,positives in test part
+DIAG_nneg_test,calc,300.0,,,s4diag diag_main.csv,negatives in test part
+DIAG_probe,asymmetry,0.6525453112687155,0.5903228231756474,0.712694006707514,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_ownscore,asymmetry,0.6073680063041765,0.54076861310459,0.67198822057654,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_head,asymmetry,0.7122458628841608,0.6575552521027092,0.7603758174675513,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_base,asymmetry,0.5722931442080379,0.5086531761420474,0.6361743296303416,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens,asymmetry,0.0449172576832151,0.0131199509152265,0.0852156432748538,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_spec,asymmetry,0.9922222222222222,0.9816814961278628,1.0,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_probe_head,asymmetry,-0.0597005516154452,-0.1171748951145751,-0.002933232965931,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_d_own_head,asymmetry,-0.1048778565799842,-0.1697817805219959,-0.0369239252487183,s4diag diag_main.csv,"exploratory study; test part of 2,000-study EMBED validation sample"
+DIAG_sens90_logit,asymmetry,0.1631205673758865,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_probe,asymmetry,0.2765957446808511,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_sens90_s1,asymmetry,0.3475177304964539,,,s4diag diag_main.csv,sensitivity at specificity 0.90 (no interval)
+DIAG_npos_test,asymmetry,141.0,,,s4diag diag_main.csv,positives in test part
+DIAG_nneg_test,asymmetry,300.0,,,s4diag diag_main.csv,negatives in test part
+DIAG_spec_min,,0.9888517279821628,,,s4diag diag_main.csv,lowest specificity of greedy report over the three findings
+CHECK_patient_overlap_train_test,,0.0,,,"server check 2026-10-09 (EMBED patient ids, aggregate counts only)","patients shared between training pool (13,441), test (2,743) and validation sample (1,050): 0 in all pairs"
+RES2_auc_896,mass,0.6135194237200926,0.5415513188978148,0.6805297663785803,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1344,mass,0.7158798559300231,0.6468319370215225,0.7819899292141426,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1792,mass,0.6883843581167995,0.6240101104767689,0.7445350375534432,s4res res_main.csv,"base model probe, test part"
+RES2_gain_1344,mass,0.1023604322099305,0.0448822290342978,0.1641802022229644,s4res res_main.csv,gain over 896 px
+RES2_gain_1792,mass,0.0748649343967069,0.0187892047753946,0.1349366585352353,s4res res_main.csv,gain over 896 px
+RES2_auc_896,calc,0.64,0.5586755364051236,0.7225787637639179,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1344,calc,0.6595486111111111,0.5819608499772582,0.7380387369488534,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1792,calc,0.6671527777777779,0.59508526706585,0.7394337058290547,s4res res_main.csv,"base model probe, test part"
+RES2_gain_1344,calc,0.019548611111111,-0.0140678996928998,0.0552220362050373,s4res res_main.csv,gain over 896 px
+RES2_gain_1792,calc,0.0271527777777779,-0.0025860549215446,0.0613288259003851,s4res res_main.csv,gain over 896 px
+RES2_auc_896,asymmetry,0.5722931442080379,0.5086531761420474,0.6361743296303416,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1344,asymmetry,0.5955082742316785,0.5256573317042273,0.660943936286597,s4res res_main.csv,"base model probe, test part"
+RES2_auc_1792,asymmetry,0.574822695035461,0.5058106099347633,0.6414934613204054,s4res res_main.csv,"base model probe, test part"
+RES2_gain_1344,asymmetry,0.0232151300236406,-0.0542348351874605,0.0940252051948779,s4res res_main.csv,gain over 896 px
+RES2_gain_1792,asymmetry,0.0025295508274231,-0.0755922817731955,0.0773150153918504,s4res res_main.csv,gain over 896 px
+ZOOM_auc_mean_ds1,calc,0.9611556322240663,0.949085086658567,0.9701727970945254,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_auc_mean_ds2,calc,0.952204704923283,0.9382987764791179,0.9632099262648897,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_auc_mean_ds4,calc,0.9197309808716919,0.901330592647512,0.9343996286740087,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_auc_max_ds1,calc,0.9454883250356654,0.930950907062206,0.9571077192871247,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_auc_max_ds2,calc,0.936142530643142,0.9197318665641095,0.9501552337163419,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_auc_max_ds4,calc,0.9148342650013102,0.8945231222456614,0.9314283043953234,s7zoom_probe_results.json,"out-of-fold AUC, 95% interval over studies"
+ZOOM_diff_mean_ds1-mean_ds4,calc,0.041424651352374386,0.029965575202272318,0.05499785557240857,s7zoom_probe_results.json,preregistered contrasts (primary: mean_ds1-mean_ds4)
+ZOOM_diff_mean_ds2-mean_ds4,calc,0.0324737240515911,0.0223035635711309,0.044592792647953024,s7zoom_probe_results.json,preregistered contrasts (primary: mean_ds1-mean_ds4)
+ZOOM_diff_mean_ds1-mean_ds2,calc,0.008950927300783285,0.0009865417041355767,0.01765581705376551,s7zoom_probe_results.json,preregistered contrasts (primary: mean_ds1-mean_ds4)
+ZOOM_diff_max_ds1-max_ds4,calc,0.030654060034355224,0.017226320544362406,0.04537246984773423,s7zoom_probe_results.json,preregistered contrasts (primary: mean_ds1-mean_ds4)
+ZOOM_shortcut_auc2,calc,0.592659111421667,0.5470842497306939,0.6381724380770177,s7zoom_probe_results.json,shortcut control
+ZOOM_n,,1712.0,,,s7zoom_probe_results.json,windows
+ZOOM_npos,,428.0,,,s7zoom_probe_results.json,positive windows
+ZOOM_ngroups,,583.0,,,s7zoom_probe_results.json,groups (studies)
+ZOOM_vs_norm_mean_ds1,calc,0.9301685736745569,,,s7zoom_probe_results.json,AUC against normal-image windows only (no interval)
+ZOOM_vs_same_mean_ds1,calc,0.9766491614988209,,,s7zoom_probe_results.json,AUC against same-image windows only (no interval)
+ZOOM_vs_norm_mean_ds2,calc,0.9090258974582932,,,s7zoom_probe_results.json,AUC against normal-image windows only (no interval)
+ZOOM_vs_same_mean_ds2,calc,0.9737941086557778,,,s7zoom_probe_results.json,AUC against same-image windows only (no interval)
+ZOOM_vs_norm_mean_ds4,calc,0.8411760852476199,,,s7zoom_probe_results.json,AUC against normal-image windows only (no interval)
+ZOOM_vs_same_mean_ds4,calc,0.9590084286837278,,,s7zoom_probe_results.json,AUC against same-image windows only (no interval)

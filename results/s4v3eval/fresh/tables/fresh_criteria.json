@@ -1,0 +1,65 @@
+{
+ "mode": "fresh",
+ "P1_detection": {
+  "sets": 4,
+  "noninf": 0,
+  "better": 0,
+  "worse": 3,
+  "above_floor": 4,
+  "outcome": "worse"
+ },
+ "P2_category": {
+  "sets": 4,
+  "noninf": 1,
+  "better": 0,
+  "worse": 3,
+  "above_floor": 3,
+  "outcome": "worse"
+ },
+ "P3_auc_cmmd": {
+  "outcome": "worse",
+  "diff": -0.13742633705126106,
+  "lo": -0.16204644077503694,
+  "hi": -0.11324713279705549
+ },
+ "P4_descriptors": {
+  "cells": 3,
+  "max_omission_given_parent": 0.0,
+  "passed": true
+ },
+ "P5_controls": {
+  "eligible_detection_sets": 3,
+  "swap_ok": 3,
+  "passed": true,
+  "detail": {
+   "test_embed_fuji:det": {
+    "orig": 0.5543060311154093,
+    "swap": 0.5100517050058335,
+    "blank": 0.5,
+    "D_swap": 0.8149062857406761,
+    "D_blank": 1.0
+   },
+   "test_embed_ge:det": {
+    "orig": 0.5797950971105333,
+    "swap": 0.49993702875134644,
+    "blank": 0.5,
+    "D_swap": 1.0007891618775315,
+    "D_blank": 1.0
+   },
+   "test_vindr:det": {
+    "orig": 0.5579401371856163,
+    "swap": 0.49705535924617195,
+    "blank": 0.5,
+    "D_swap": 1.050822122571002,
+    "D_blank": 1.0
+   },
+   "test_cmmd:auc": {
+    "orig": 0.5704574188415416,
+    "swap": 0.466434693519773,
+    "blank": 0.5,
+    "D_swap": 1.4763913727199576,
+    "D_blank": 1.0
+   }
+  }
+ }
+}

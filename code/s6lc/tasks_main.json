@@ -1,0 +1,2324 @@
+[
+ {
+  "name": "gate1",
+  "cmd": "cd ~/cbmammo && true",
+  "done": [
+   "runs_lc/PREREG_FROZEN"
+  ],
+  "needs": [],
+  "gpu": false,
+  "prio": 0,
+  "manual": true,
+  "wait": []
+ },
+ {
+  "name": "gate2",
+  "cmd": "cd ~/cbmammo && true",
+  "done": [
+   "runs_lc/LR_FROZEN"
+  ],
+  "needs": [],
+  "gpu": false,
+  "prio": 0,
+  "manual": true,
+  "wait": []
+ },
+ {
+  "name": "dfeat",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dfeat.py --config configs/cb_embed_dinov2.yaml --out runs_lc/Dfeat --workers 4",
+  "done": [
+   "runs_lc/Dfeat/done.flag"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 300,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "Dp_1e-4",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f16.json --seed 0 --out runs_lc/D/f16_s0_lr1e-4 --lr 1e-4 --workers 4",
+  "done": [
+   "runs_lc/D/f16_s0_lr1e-4/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 250,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "Dp_3e-4",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f16.json --seed 0 --out runs_lc/D/f16_s0_lr3e-4 --lr 3e-4 --workers 4",
+  "done": [
+   "runs_lc/D/f16_s0_lr3e-4/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 250,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "Dp_1e-3",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f16.json --seed 0 --out runs_lc/D/f16_s0_lr1e-3 --lr 1e-3 --workers 4",
+  "done": [
+   "runs_lc/D/f16_s0_lr1e-3/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 250,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_pilot_5e-5",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr5e-5/ckpt_765 --out runs_lc/V/f16_s0_lr5e-5/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr5e-5/ckpt_1530 --out runs_lc/V/f16_s0_lr5e-5/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr5e-5/ckpt_2295 --out runs_lc/V/f16_s0_lr5e-5/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s0_lr5e-5 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s0_lr5e-5/selected.json"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 280,
+  "manual": false,
+  "wait": [
+   "runs_lc/V/f16_s0_lr5e-5/train_log.json"
+  ]
+ },
+ {
+  "name": "vsc_pilot_1e-4",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr1e-4/ckpt_765 --out runs_lc/V/f16_s0_lr1e-4/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr1e-4/ckpt_1530 --out runs_lc/V/f16_s0_lr1e-4/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr1e-4/ckpt_2295 --out runs_lc/V/f16_s0_lr1e-4/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s0_lr1e-4 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s0_lr1e-4/selected.json"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 280,
+  "manual": false,
+  "wait": [
+   "runs_lc/V/f16_s0_lr1e-4/train_log.json"
+  ]
+ },
+ {
+  "name": "vsc_pilot_2e-4",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr2e-4/ckpt_765 --out runs_lc/V/f16_s0_lr2e-4/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr2e-4/ckpt_1530 --out runs_lc/V/f16_s0_lr2e-4/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0_lr2e-4/ckpt_2295 --out runs_lc/V/f16_s0_lr2e-4/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s0_lr2e-4 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s0_lr2e-4/selected.json"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 280,
+  "manual": false,
+  "wait": [
+   "runs_lc/V/f16_s0_lr2e-4/train_log.json"
+  ]
+ },
+ {
+  "name": "bext_0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_base.json --out runs_lc/A/base_shard0.npz --tokens runs_lc/A/tokens --shard 0/5 --bs 1 --workers 4",
+  "done": [
+   "runs_lc/A/base_shard0.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 200,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "bext_1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_base.json --out runs_lc/A/base_shard1.npz --tokens runs_lc/A/tokens --shard 1/5 --bs 1 --workers 4",
+  "done": [
+   "runs_lc/A/base_shard1.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 200,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "bext_2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_base.json --out runs_lc/A/base_shard2.npz --tokens runs_lc/A/tokens --shard 2/5 --bs 1 --workers 4",
+  "done": [
+   "runs_lc/A/base_shard2.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 200,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "bext_3",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_base.json --out runs_lc/A/base_shard3.npz --tokens runs_lc/A/tokens --shard 3/5 --bs 1 --workers 4",
+  "done": [
+   "runs_lc/A/base_shard3.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 200,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "bext_4",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_base.json --out runs_lc/A/base_shard4.npz --tokens runs_lc/A/tokens --shard 4/5 --bs 1 --workers 4",
+  "done": [
+   "runs_lc/A/base_shard4.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 200,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f1.json --adapter runs_vlm/v1_s0 --out runs_lc/V/f1_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f1_s0/ext.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 210,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f1_s0/ext.npz --train runs_lc/sets/subset_s0_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f1_s0/probe.npz --grid runs_lc/V/f1_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f1_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f1_s0",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 190,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f1_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f1.json --adapter runs_vlm/v1_s1 --out runs_lc/V/f1_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f1_s1/ext.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 210,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f1_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f1_s1/ext.npz --train runs_lc/sets/subset_s1_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f1_s1/probe.npz --grid runs_lc/V/f1_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f1_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f1_s1",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 190,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f1_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f1.json --adapter runs_vlm/v1_s2 --out runs_lc/V/f1_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f1_s2/ext.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 210,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f1_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f1_s2/ext.npz --train runs_lc/sets/subset_s2_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f1_s2/probe.npz --grid runs_lc/V/f1_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f1_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f1_s2",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 190,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "blank_v1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/test_sub3000.json --adapter runs_vlm/v1_s0 --blank --no_feats --out runs_lc/V/blank_s0/test.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/blank_s0/test.npz"
+  ],
+  "needs": [
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 40,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f1_s0.npz --grid runs_lc/A/probe_f1_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f1_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 195,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f1_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f1_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 197,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f2_s0.npz --grid runs_lc/A/probe_f2_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f2_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 185,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f2_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f2_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 187,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f4_s0.npz --grid runs_lc/A/probe_f4_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f4_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 175,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f4_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f4_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 177,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f8_s0.npz --grid runs_lc/A/probe_f8_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f8_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 165,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f8_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f8_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 167,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f16_s0.npz --grid runs_lc/A/probe_f16_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f16_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 155,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f16_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f16_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 157,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s0_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f32_s0.npz --grid runs_lc/A/probe_f32_s0_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f32_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 145,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s0_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f32_s0.npz --seed 0 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f32_s0.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 147,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f1_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f1_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f1_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 197,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s1_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f2_s1.npz --grid runs_lc/A/probe_f2_s1_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f2_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 185,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f2_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f2_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 187,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s1_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f4_s1.npz --grid runs_lc/A/probe_f4_s1_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f4_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 175,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f4_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f4_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 177,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s1_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f8_s1.npz --grid runs_lc/A/probe_f8_s1_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f8_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 165,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f8_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f8_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 167,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s1_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f16_s1.npz --grid runs_lc/A/probe_f16_s1_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f16_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 155,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f16_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f16_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 157,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s1_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f32_s1.npz --grid runs_lc/A/probe_f32_s1_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f32_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 145,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s1_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f32_s1.npz --seed 1 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f32_s1.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 147,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f1_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f1.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f1_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f1_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 197,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s2_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f2_s2.npz --grid runs_lc/A/probe_f2_s2_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f2_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 185,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f2_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f2_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 187,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s2_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f4_s2.npz --grid runs_lc/A/probe_f4_s2_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f4_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 175,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f4_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f4_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 177,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s2_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f8_s2.npz --grid runs_lc/A/probe_f8_s2_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f8_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 165,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f8_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f8_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 167,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s2_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f16_s2.npz --grid runs_lc/A/probe_f16_s2_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f16_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 155,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f16_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f16_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 157,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prbA_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/A/base_shard0.npz,runs_lc/A/base_shard1.npz,runs_lc/A/base_shard2.npz,runs_lc/A/base_shard3.npz,runs_lc/A/base_shard4.npz --train runs_lc/sets/subset_s2_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/probe_f32_s2.npz --grid runs_lc/A/probe_f32_s2_grid.csv",
+  "done": [
+   "runs_lc/A/probe_f32_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 145,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tfA_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_tfhead.py --tokens runs_lc/A/tokens --train runs_lc/sets/subset_s2_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/A/tf_f32_s2.npz --seed 2 --workers 4",
+  "done": [
+   "runs_lc/A/tf_f32_s2.npz"
+  ],
+  "needs": [
+   "bext_0",
+   "bext_1",
+   "bext_2",
+   "bext_3",
+   "bext_4",
+   "gate1"
+  ],
+  "gpu": true,
+  "prio": 147,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f32.json --out runs_lc/V/f32_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f32_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 106,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s0/ckpt_765 --out runs_lc/V/f32_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s0/ckpt_1530 --out runs_lc/V/f32_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s0/ckpt_2295 --out runs_lc/V/f32_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f32_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f32_s0/selected.json"
+  ],
+  "needs": [
+   "trn_f32_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f32.json --adapter runs_lc/V/f32_s0/selected --out runs_lc/V/f32_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f32_s0/ext.npz"
+  ],
+  "needs": [
+   "vsc_f32_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 66,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f32_s0/ext.npz --train runs_lc/sets/subset_s0_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f32_s0/probe.npz --grid runs_lc/V/f32_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f32_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f32_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f16.json --out runs_lc/V/f16_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f16_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 107,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0/ckpt_765 --out runs_lc/V/f16_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0/ckpt_1530 --out runs_lc/V/f16_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s0/ckpt_2295 --out runs_lc/V/f16_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s0/selected.json"
+  ],
+  "needs": [
+   "trn_f16_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f16.json --adapter runs_lc/V/f16_s0/selected --out runs_lc/V/f16_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f16_s0/ext.npz"
+  ],
+  "needs": [
+   "vsc_f16_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 67,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f16_s0/ext.npz --train runs_lc/sets/subset_s0_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f16_s0/probe.npz --grid runs_lc/V/f16_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f16_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f16_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f8.json --out runs_lc/V/f8_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f8_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 108,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s0/ckpt_765 --out runs_lc/V/f8_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s0/ckpt_1530 --out runs_lc/V/f8_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s0/ckpt_2295 --out runs_lc/V/f8_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f8_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f8_s0/selected.json"
+  ],
+  "needs": [
+   "trn_f8_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f8.json --adapter runs_lc/V/f8_s0/selected --out runs_lc/V/f8_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f8_s0/ext.npz"
+  ],
+  "needs": [
+   "vsc_f8_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 68,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f8_s0/ext.npz --train runs_lc/sets/subset_s0_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f8_s0/probe.npz --grid runs_lc/V/f8_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f8_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f8_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f4.json --out runs_lc/V/f4_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f4_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s0/ckpt_765 --out runs_lc/V/f4_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s0/ckpt_1530 --out runs_lc/V/f4_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s0/ckpt_2295 --out runs_lc/V/f4_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f4_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f4_s0/selected.json"
+  ],
+  "needs": [
+   "trn_f4_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f4.json --adapter runs_lc/V/f4_s0/selected --out runs_lc/V/f4_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f4_s0/ext.npz"
+  ],
+  "needs": [
+   "vsc_f4_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f4_s0/ext.npz --train runs_lc/sets/subset_s0_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f4_s0/probe.npz --grid runs_lc/V/f4_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f4_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f4_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f2.json --out runs_lc/V/f2_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f2_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s0/ckpt_765 --out runs_lc/V/f2_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s0/ckpt_1530 --out runs_lc/V/f2_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s0/ckpt_2295 --out runs_lc/V/f2_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f2_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f2_s0/selected.json"
+  ],
+  "needs": [
+   "trn_f2_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s0_f2.json --adapter runs_lc/V/f2_s0/selected --out runs_lc/V/f2_s0/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f2_s0/ext.npz"
+  ],
+  "needs": [
+   "vsc_f2_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f2_s0/ext.npz --train runs_lc/sets/subset_s0_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f2_s0/probe.npz --grid runs_lc/V/f2_s0/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f2_s0/probe.npz"
+  ],
+  "needs": [
+   "ext_f2_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f1_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f1.json --seed 0 --out runs_lc/D/f1_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f1_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f32_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f32.json --seed 0 --out runs_lc/D/f32_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f32_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f16_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f16.json --seed 0 --out runs_lc/D/f16_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f16_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f8_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f8.json --seed 0 --out runs_lc/D/f8_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f8_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f4_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f4.json --seed 0 --out runs_lc/D/f4_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f4_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f2_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s0_f2.json --seed 0 --out runs_lc/D/f2_s0 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f2_s0/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_ctl_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s0_f1.json --out runs_lc/V/ctl_s0 --seed 0 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s0/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 98,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_ctl_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s0/ckpt_765 --out runs_lc/V/ctl_s0/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s0/ckpt_1530 --out runs_lc/V/ctl_s0/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s0/ckpt_2295 --out runs_lc/V/ctl_s0/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/ctl_s0 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/ctl_s0/selected.json"
+  ],
+  "needs": [
+   "trn_ctl_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tst_ctl_s0",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/test_embed.json --adapter runs_lc/V/ctl_s0/selected --out runs_lc/V/ctl_s0/test.npz --no_feats --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s0/test.npz"
+  ],
+  "needs": [
+   "vsc_ctl_s0",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 60,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f32.json --out runs_lc/V/f32_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f32_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 106,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s1/ckpt_765 --out runs_lc/V/f32_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s1/ckpt_1530 --out runs_lc/V/f32_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s1/ckpt_2295 --out runs_lc/V/f32_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f32_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f32_s1/selected.json"
+  ],
+  "needs": [
+   "trn_f32_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f32.json --adapter runs_lc/V/f32_s1/selected --out runs_lc/V/f32_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f32_s1/ext.npz"
+  ],
+  "needs": [
+   "vsc_f32_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 66,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f32_s1/ext.npz --train runs_lc/sets/subset_s1_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f32_s1/probe.npz --grid runs_lc/V/f32_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f32_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f32_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f16.json --out runs_lc/V/f16_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f16_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 107,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s1/ckpt_765 --out runs_lc/V/f16_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s1/ckpt_1530 --out runs_lc/V/f16_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s1/ckpt_2295 --out runs_lc/V/f16_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s1/selected.json"
+  ],
+  "needs": [
+   "trn_f16_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f16.json --adapter runs_lc/V/f16_s1/selected --out runs_lc/V/f16_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f16_s1/ext.npz"
+  ],
+  "needs": [
+   "vsc_f16_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 67,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f16_s1/ext.npz --train runs_lc/sets/subset_s1_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f16_s1/probe.npz --grid runs_lc/V/f16_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f16_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f16_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f8.json --out runs_lc/V/f8_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f8_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 108,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s1/ckpt_765 --out runs_lc/V/f8_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s1/ckpt_1530 --out runs_lc/V/f8_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s1/ckpt_2295 --out runs_lc/V/f8_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f8_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f8_s1/selected.json"
+  ],
+  "needs": [
+   "trn_f8_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f8.json --adapter runs_lc/V/f8_s1/selected --out runs_lc/V/f8_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f8_s1/ext.npz"
+  ],
+  "needs": [
+   "vsc_f8_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 68,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f8_s1/ext.npz --train runs_lc/sets/subset_s1_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f8_s1/probe.npz --grid runs_lc/V/f8_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f8_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f8_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f4.json --out runs_lc/V/f4_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f4_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s1/ckpt_765 --out runs_lc/V/f4_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s1/ckpt_1530 --out runs_lc/V/f4_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s1/ckpt_2295 --out runs_lc/V/f4_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f4_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f4_s1/selected.json"
+  ],
+  "needs": [
+   "trn_f4_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f4.json --adapter runs_lc/V/f4_s1/selected --out runs_lc/V/f4_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f4_s1/ext.npz"
+  ],
+  "needs": [
+   "vsc_f4_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f4_s1/ext.npz --train runs_lc/sets/subset_s1_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f4_s1/probe.npz --grid runs_lc/V/f4_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f4_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f4_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f2.json --out runs_lc/V/f2_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f2_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s1/ckpt_765 --out runs_lc/V/f2_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s1/ckpt_1530 --out runs_lc/V/f2_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s1/ckpt_2295 --out runs_lc/V/f2_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f2_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f2_s1/selected.json"
+  ],
+  "needs": [
+   "trn_f2_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s1_f2.json --adapter runs_lc/V/f2_s1/selected --out runs_lc/V/f2_s1/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f2_s1/ext.npz"
+  ],
+  "needs": [
+   "vsc_f2_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f2_s1/ext.npz --train runs_lc/sets/subset_s1_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f2_s1/probe.npz --grid runs_lc/V/f2_s1/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f2_s1/probe.npz"
+  ],
+  "needs": [
+   "ext_f2_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f1_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f1.json --seed 1 --out runs_lc/D/f1_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f1_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f32_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f32.json --seed 1 --out runs_lc/D/f32_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f32_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f16_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f16.json --seed 1 --out runs_lc/D/f16_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f16_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f8_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f8.json --seed 1 --out runs_lc/D/f8_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f8_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f4_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f4.json --seed 1 --out runs_lc/D/f4_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f4_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f2_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s1_f2.json --seed 1 --out runs_lc/D/f2_s1 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f2_s1/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_ctl_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s1_f1.json --out runs_lc/V/ctl_s1 --seed 1 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s1/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 98,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_ctl_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s1/ckpt_765 --out runs_lc/V/ctl_s1/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s1/ckpt_1530 --out runs_lc/V/ctl_s1/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s1/ckpt_2295 --out runs_lc/V/ctl_s1/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/ctl_s1 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/ctl_s1/selected.json"
+  ],
+  "needs": [
+   "trn_ctl_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tst_ctl_s1",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/test_embed.json --adapter runs_lc/V/ctl_s1/selected --out runs_lc/V/ctl_s1/test.npz --no_feats --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s1/test.npz"
+  ],
+  "needs": [
+   "vsc_ctl_s1",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 60,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f32.json --out runs_lc/V/f32_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f32_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 106,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s2/ckpt_765 --out runs_lc/V/f32_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s2/ckpt_1530 --out runs_lc/V/f32_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f32_s2/ckpt_2295 --out runs_lc/V/f32_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f32_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f32_s2/selected.json"
+  ],
+  "needs": [
+   "trn_f32_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f32.json --adapter runs_lc/V/f32_s2/selected --out runs_lc/V/f32_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f32_s2/ext.npz"
+  ],
+  "needs": [
+   "vsc_f32_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 66,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f32_s2/ext.npz --train runs_lc/sets/subset_s2_f32.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f32_s2/probe.npz --grid runs_lc/V/f32_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f32_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f32_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f16.json --out runs_lc/V/f16_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f16_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 107,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s2/ckpt_765 --out runs_lc/V/f16_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s2/ckpt_1530 --out runs_lc/V/f16_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f16_s2/ckpt_2295 --out runs_lc/V/f16_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f16_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f16_s2/selected.json"
+  ],
+  "needs": [
+   "trn_f16_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f16.json --adapter runs_lc/V/f16_s2/selected --out runs_lc/V/f16_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f16_s2/ext.npz"
+  ],
+  "needs": [
+   "vsc_f16_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 67,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f16_s2/ext.npz --train runs_lc/sets/subset_s2_f16.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f16_s2/probe.npz --grid runs_lc/V/f16_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f16_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f16_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f8.json --out runs_lc/V/f8_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f8_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 108,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s2/ckpt_765 --out runs_lc/V/f8_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s2/ckpt_1530 --out runs_lc/V/f8_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f8_s2/ckpt_2295 --out runs_lc/V/f8_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f8_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f8_s2/selected.json"
+  ],
+  "needs": [
+   "trn_f8_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f8.json --adapter runs_lc/V/f8_s2/selected --out runs_lc/V/f8_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f8_s2/ext.npz"
+  ],
+  "needs": [
+   "vsc_f8_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 68,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f8_s2/ext.npz --train runs_lc/sets/subset_s2_f8.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f8_s2/probe.npz --grid runs_lc/V/f8_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f8_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f8_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f4.json --out runs_lc/V/f4_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f4_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s2/ckpt_765 --out runs_lc/V/f4_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s2/ckpt_1530 --out runs_lc/V/f4_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f4_s2/ckpt_2295 --out runs_lc/V/f4_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f4_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f4_s2/selected.json"
+  ],
+  "needs": [
+   "trn_f4_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f4.json --adapter runs_lc/V/f4_s2/selected --out runs_lc/V/f4_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f4_s2/ext.npz"
+  ],
+  "needs": [
+   "vsc_f4_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f4_s2/ext.npz --train runs_lc/sets/subset_s2_f4.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f4_s2/probe.npz --grid runs_lc/V/f4_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f4_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f4_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f2.json --out runs_lc/V/f2_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/f2_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 109,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s2/ckpt_765 --out runs_lc/V/f2_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s2/ckpt_1530 --out runs_lc/V/f2_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/f2_s2/ckpt_2295 --out runs_lc/V/f2_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/f2_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/f2_s2/selected.json"
+  ],
+  "needs": [
+   "trn_f2_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "ext_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/ext_s2_f2.json --adapter runs_lc/V/f2_s2/selected --out runs_lc/V/f2_s2/ext.npz --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/f2_s2/ext.npz"
+  ],
+  "needs": [
+   "vsc_f2_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 69,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "prb_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_probe.py --feats runs_lc/V/f2_s2/ext.npz --train runs_lc/sets/subset_s2_f2.json --vs runs_lc/sets/val_sample.json --test runs_lc/sets/test_embed.json --meta runs_lc/sets/meta.json --out runs_lc/V/f2_s2/probe.npz --grid runs_lc/V/f2_s2/probe_grid.csv",
+  "done": [
+   "runs_lc/V/f2_s2/probe.npz"
+  ],
+  "needs": [
+   "ext_f2_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 55,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f1_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f1.json --seed 2 --out runs_lc/D/f1_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f1_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f32_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f32.json --seed 2 --out runs_lc/D/f32_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f32_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f16_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f16.json --seed 2 --out runs_lc/D/f16_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f16_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f8_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f8.json --seed 2 --out runs_lc/D/f8_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f8_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f4_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f4.json --seed 2 --out runs_lc/D/f4_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f4_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "D_f2_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_dtrain.py --config configs/cb_embed_dinov2.yaml --feat runs_lc/Dfeat --rows runs_lc/sets/subset_s2_f2.json --seed 2 --out runs_lc/D/f2_s2 --lr $(cat runs_lc/lr_D.txt) --workers 4",
+  "done": [
+   "runs_lc/D/f2_s2/run.json"
+  ],
+  "needs": [
+   "dfeat",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 120,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "trn_ctl_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_train.py --rows runs_lc/sets/subset_s2_f1.json --out runs_lc/V/ctl_s2 --seed 2 --steps 2295 --ckpt 765,1530,2295 --lr $(cat runs_lc/lr_V.txt) --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s2/train_log.json"
+  ],
+  "needs": [
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 98,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "vsc_ctl_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s2/ckpt_765 --out runs_lc/V/ctl_s2/vs_ck765.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s2/ckpt_1530 --out runs_lc/V/ctl_s2/vs_ck1530.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/val_sample.json --adapter runs_lc/V/ctl_s2/ckpt_2295 --out runs_lc/V/ctl_s2/vs_ck2295.npz --no_feats --bs 1 --workers 4 && ~/envs/cbmammo/bin/python analysis_embed/lc_pick.py --run runs_lc/V/ctl_s2 --meta runs_lc/sets/meta.json",
+  "done": [
+   "runs_lc/V/ctl_s2/selected.json"
+  ],
+  "needs": [
+   "trn_ctl_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 92,
+  "manual": false,
+  "wait": []
+ },
+ {
+  "name": "tst_ctl_s2",
+  "cmd": "cd ~/cbmammo && ~/envs/cbmammo/bin/python analysis_embed/lc_score.py --rows runs_lc/sets/test_embed.json --adapter runs_lc/V/ctl_s2/selected --out runs_lc/V/ctl_s2/test.npz --no_feats --bs 1 --workers 4",
+  "done": [
+   "runs_lc/V/ctl_s2/test.npz"
+  ],
+  "needs": [
+   "vsc_ctl_s2",
+   "gate1",
+   "gate2"
+  ],
+  "gpu": true,
+  "prio": 60,
+  "manual": false,
+  "wait": []
+ }
+]

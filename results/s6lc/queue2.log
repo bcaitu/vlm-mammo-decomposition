@@ -1,0 +1,275 @@
+21:59:40 START dfeat gpu 2
+21:59:41 START ext_f1_s0 gpu 6
+22:31:49 DONE dfeat
+22:31:50 START Dp_1e-4 gpu 2
+22:38:38 DONE Dp_1e-4
+22:38:39 START Dp_3e-4 gpu 2
+22:45:20 DONE Dp_3e-4
+22:45:20 START Dp_1e-3 gpu 2
+22:50:45 DONE Dp_1e-3
+22:50:45 START ext_f1_s1 gpu 2
+01:07:29 START vsc_pilot_1e-4 gpu 4
+01:08:35 START vsc_pilot_2e-4 gpu 5
+01:09:37 START vsc_pilot_5e-5 gpu 3
+01:13:18 DONE ext_f1_s0
+01:13:18 START ext_f1_s2 gpu 6
+01:21:58 DONE vsc_pilot_1e-4
+01:21:59 START bext_0 gpu 4
+01:22:39 DONE vsc_pilot_2e-4
+01:22:39 START bext_1 gpu 5
+01:23:59 DONE vsc_pilot_5e-5
+01:23:59 START bext_2 gpu 3
+01:54:21 DONE bext_1
+01:54:21 START bext_3 gpu 5
+01:54:41 DONE bext_0
+01:54:41 START bext_4 gpu 4
+01:56:01 DONE bext_2
+01:56:01 START prb_f1_s0 gpu 3
+01:57:41 DONE prb_f1_s0
+01:57:41 START D_f1_s0 gpu 3
+02:04:02 DONE ext_f1_s1
+02:04:02 START prb_f1_s1 gpu 2
+02:05:42 DONE prb_f1_s1
+02:05:42 START D_f32_s0 gpu 2
+02:13:42 DONE D_f32_s0
+02:13:43 START D_f8_s0 gpu 2
+02:25:23 DONE D_f8_s0
+02:25:23 START D_f4_s0 gpu 2
+02:27:24 DONE bext_3
+02:27:24 START tfA_f1_s0 gpu 5
+02:27:44 DONE bext_4
+02:27:44 START tfA_f1_s1 gpu 4
+03:08:26 DONE D_f4_s0
+03:08:27 START tfA_f1_s2 gpu 2
+03:18:07 DONE D_f1_s0
+03:18:07 START prbA_f1_s0 gpu 3
+03:20:27 DONE prbA_f1_s0
+03:20:28 START tfA_f2_s0 gpu 3
+04:06:50 DONE tfA_f2_s0
+04:06:51 START tfA_f2_s1 gpu 3
+04:14:51 DONE tfA_f1_s0
+04:14:51 START tfA_f2_s2 gpu 5
+04:23:52 DONE tfA_f1_s1
+04:23:52 START prbA_f2_s0 gpu 4
+04:26:12 DONE prbA_f2_s0
+04:26:12 START prbA_f2_s1 gpu 4
+04:28:32 DONE prbA_f2_s1
+04:28:33 START prbA_f2_s2 gpu 4
+04:29:13 DONE tfA_f2_s1
+04:29:13 START tfA_f4_s0 gpu 3
+04:30:33 DONE prbA_f2_s2
+04:30:33 START tfA_f4_s1 gpu 4
+04:43:14 DONE tfA_f1_s2
+04:43:14 START tfA_f4_s2 gpu 2
+04:44:54 DONE tfA_f4_s1
+04:44:54 START prbA_f4_s0 gpu 4
+04:46:34 DONE prbA_f4_s0
+04:46:35 START prbA_f4_s1 gpu 4
+04:46:55 DONE tfA_f4_s0
+04:46:55 START prbA_f4_s2 gpu 3
+04:47:55 DONE ext_f1_s2
+04:47:55 DONE prbA_f4_s1
+04:47:55 START prb_f1_s2 gpu 4
+04:47:55 START tfA_f8_s0 gpu 6
+04:48:15 DONE tfA_f2_s2
+04:48:15 START tfA_f8_s1 gpu 5
+04:48:35 DONE prbA_f4_s2
+04:48:35 START tfA_f8_s2 gpu 3
+04:49:15 DONE prb_f1_s2
+04:49:16 START prbA_f8_s0 gpu 4
+04:49:56 DONE tfA_f4_s2
+04:49:56 START prbA_f8_s1 gpu 2
+04:50:36 DONE prbA_f8_s0
+04:50:36 START prbA_f8_s2 gpu 4
+04:50:56 DONE prbA_f8_s1
+04:50:56 START tfA_f16_s0 gpu 2
+04:51:36 DONE prbA_f8_s2
+04:51:36 START tfA_f16_s1 gpu 4
+04:52:16 DONE tfA_f8_s0
+04:52:16 START tfA_f16_s2 gpu 6
+04:53:17 DONE tfA_f8_s1
+04:53:17 START prbA_f16_s0 gpu 5
+04:54:37 DONE tfA_f16_s0
+04:54:37 DONE prbA_f16_s0
+04:54:37 START prbA_f16_s1 gpu 2
+04:54:37 START prbA_f16_s2 gpu 5
+04:55:37 DONE prbA_f16_s2
+04:55:37 START tfA_f32_s0 gpu 5
+04:55:57 DONE prbA_f16_s1
+04:55:58 START tfA_f32_s1 gpu 2
+04:56:18 DONE tfA_f8_s2
+04:56:18 DONE tfA_f16_s1
+04:56:18 START tfA_f32_s2 gpu 3
+04:56:18 START prbA_f32_s0 gpu 4
+04:56:58 DONE tfA_f16_s2
+04:56:58 START prbA_f32_s1 gpu 6
+04:57:18 DONE prbA_f32_s0
+04:57:18 START prbA_f32_s2 gpu 4
+04:57:38 DONE tfA_f32_s0
+04:57:38 START D_f2_s0 gpu 5
+04:57:58 DONE tfA_f32_s1
+04:57:58 DONE prbA_f32_s1
+04:57:59 START D_f1_s1 gpu 2
+04:57:59 START D_f32_s1 gpu 6
+04:58:19 DONE tfA_f32_s2
+04:58:19 DONE prbA_f32_s2
+04:58:19 START D_f16_s1 gpu 3
+04:58:19 START D_f8_s1 gpu 4
+05:09:20 DONE D_f32_s1
+05:09:20 START D_f4_s1 gpu 6
+05:10:40 DONE D_f16_s1
+05:10:41 START D_f2_s1 gpu 3
+05:14:21 DONE D_f8_s1
+05:14:21 START D_f1_s2 gpu 4
+05:39:43 DONE D_f4_s1
+05:39:43 START D_f32_s2 gpu 6
+05:47:23 DONE D_f2_s0
+05:47:23 START D_f16_s2 gpu 5
+05:57:24 DONE D_f32_s2
+05:57:24 START D_f8_s2 gpu 6
+06:03:05 DONE D_f2_s1
+06:03:05 START D_f4_s2 gpu 3
+06:06:25 DONE D_f16_s2
+06:06:25 START D_f2_s2 gpu 5
+06:22:06 DONE D_f8_s2
+06:22:06 START trn_f4_s0 gpu 6
+06:30:47 DONE D_f1_s1
+06:30:47 START trn_f2_s0 gpu 2
+06:32:07 DONE D_f4_s2
+06:32:07 START trn_f4_s1 gpu 3
+06:38:48 DONE D_f1_s2
+06:38:48 START trn_f2_s1 gpu 4
+06:40:48 DONE D_f2_s2
+06:40:48 START trn_f4_s2 gpu 5
+09:41:19 DONE trn_f4_s0
+09:41:19 START trn_f2_s2 gpu 6
+09:48:59 DONE trn_f2_s0
+09:48:59 START trn_f8_s0 gpu 2
+09:50:39 DONE trn_f4_s1
+09:50:39 START trn_f8_s1 gpu 3
+09:56:40 DONE trn_f2_s1
+09:56:40 START trn_f8_s2 gpu 4
+09:57:20 DONE trn_f4_s2
+09:57:20 START trn_f16_s1 gpu 5
+12:59:11 DONE trn_f2_s2
+12:59:11 START trn_f16_s2 gpu 6
+13:08:11 DONE trn_f8_s0
+13:08:11 START trn_f32_s0 gpu 2
+13:09:11 DONE trn_f8_s1
+13:09:12 START trn_f32_s1 gpu 3
+13:12:52 DONE trn_f8_s2
+13:12:52 START trn_f32_s2 gpu 4
+13:14:32 DONE trn_f16_s1
+13:14:32 START trn_ctl_s0 gpu 5
+16:17:02 DONE trn_f16_s2
+16:17:02 START trn_ctl_s1 gpu 6
+16:25:43 DONE trn_f32_s0
+16:25:43 START trn_ctl_s2 gpu 2
+16:27:43 DONE trn_f32_s1
+16:27:43 START vsc_f32_s0 gpu 3
+16:29:03 DONE trn_f32_s2
+16:29:03 START vsc_f8_s0 gpu 4
+16:33:04 DONE trn_ctl_s0
+16:33:04 START vsc_f4_s0 gpu 5
+16:42:04 DONE vsc_f32_s0
+16:42:04 START vsc_f2_s0 gpu 3
+16:43:25 DONE vsc_f8_s0
+16:43:25 START vsc_ctl_s0 gpu 4
+16:47:25 DONE vsc_f4_s0
+16:47:25 START vsc_f32_s1 gpu 5
+16:56:26 DONE vsc_f2_s0
+16:56:26 START vsc_f16_s1 gpu 3
+16:58:06 DONE vsc_ctl_s0
+16:58:06 START vsc_f8_s1 gpu 4
+17:01:46 DONE vsc_f32_s1
+17:01:46 START vsc_f4_s1 gpu 5
+17:10:47 DONE vsc_f16_s1
+17:10:47 START vsc_f2_s1 gpu 3
+17:12:47 DONE vsc_f8_s1
+17:12:47 START vsc_f32_s2 gpu 4
+17:16:07 DONE vsc_f4_s1
+17:16:08 START vsc_f16_s2 gpu 5
+17:25:28 DONE vsc_f2_s1
+17:25:28 START vsc_f8_s2 gpu 3
+17:27:08 DONE vsc_f32_s2
+17:27:08 START vsc_f4_s2 gpu 4
+17:30:29 DONE vsc_f16_s2
+17:30:29 START vsc_f2_s2 gpu 5
+17:39:49 DONE vsc_f8_s2
+17:39:50 START ext_f4_s0 gpu 3
+17:41:30 DONE vsc_f4_s2
+17:41:30 START ext_f2_s0 gpu 4
+17:44:50 DONE vsc_f2_s2
+17:44:50 START ext_f4_s1 gpu 5
+18:53:34 DONE ext_f4_s0
+18:53:34 START ext_f2_s1 gpu 3
+18:58:14 DONE ext_f4_s1
+18:58:15 START ext_f4_s2 gpu 5
+19:34:17 DONE ext_f2_s0
+19:34:17 START ext_f2_s2 gpu 4
+19:34:57 DONE trn_ctl_s1
+19:34:57 START vsc_ctl_s1 gpu 6
+19:44:37 DONE trn_ctl_s2
+19:44:38 START vsc_ctl_s2 gpu 2
+19:49:18 DONE vsc_ctl_s1
+19:49:18 START ext_f8_s0 gpu 6
+19:58:59 DONE vsc_ctl_s2
+19:58:59 START ext_f8_s1 gpu 2
+20:11:59 DONE ext_f4_s2
+20:12:00 START ext_f8_s2 gpu 5
+20:42:41 DONE ext_f8_s0
+20:42:41 START ext_f16_s0 gpu 6
+20:48:02 DONE ext_f2_s1
+20:48:02 START ext_f16_s1 gpu 3
+20:53:02 DONE ext_f8_s1
+20:53:02 START ext_f16_s2 gpu 2
+21:05:23 DONE ext_f8_s2
+21:05:23 START ext_f32_s0 gpu 5
+21:26:04 DONE ext_f16_s0
+21:26:04 START ext_f32_s1 gpu 6
+21:27:24 DONE ext_f2_s2
+21:27:25 START ext_f32_s2 gpu 4
+21:31:25 DONE ext_f16_s1
+21:31:25 START tst_ctl_s0 gpu 3
+21:36:25 DONE ext_f16_s2
+21:36:25 START tst_ctl_s1 gpu 2
+21:44:26 DONE ext_f32_s0
+21:44:26 START tst_ctl_s2 gpu 5
+22:00:27 DONE tst_ctl_s0
+22:00:27 START prb_f32_s0 gpu 3
+22:01:07 DONE prb_f32_s0
+22:01:07 START prb_f16_s0 gpu 3
+22:01:47 DONE prb_f16_s0
+22:01:48 START prb_f8_s0 gpu 3
+22:02:28 DONE prb_f8_s0
+22:02:28 START prb_f4_s0 gpu 3
+22:03:28 DONE prb_f4_s0
+22:03:28 START prb_f2_s0 gpu 3
+22:04:28 DONE ext_f32_s1
+22:04:28 DONE prb_f2_s0
+22:04:28 START prb_f32_s1 gpu 3
+22:04:28 START prb_f16_s1 gpu 6
+22:05:08 DONE prb_f32_s1
+22:05:08 DONE prb_f16_s1
+22:05:09 START prb_f8_s1 gpu 3
+22:05:09 START prb_f4_s1 gpu 6
+22:05:29 DONE tst_ctl_s1
+22:05:29 START prb_f2_s1 gpu 2
+22:05:49 DONE ext_f32_s2
+22:05:49 DONE prb_f8_s1
+22:05:49 START prb_f32_s2 gpu 3
+22:05:49 START prb_f16_s2 gpu 4
+22:06:09 DONE prb_f4_s1
+22:06:10 START prb_f8_s2 gpu 6
+22:06:30 DONE prb_f2_s1
+22:06:30 DONE prb_f32_s2
+22:06:30 DONE prb_f16_s2
+22:06:30 START prb_f4_s2 gpu 2
+22:06:30 START prb_f2_s2 gpu 3
+22:06:30 START blank_v1_s0 gpu 4
+22:06:51 DONE prb_f8_s2
+22:07:31 DONE prb_f4_s2
+22:07:31 DONE prb_f2_s2
+22:13:31 DONE tst_ctl_s2
+22:13:31 DONE blank_v1_s0
+queue finished; failed: []

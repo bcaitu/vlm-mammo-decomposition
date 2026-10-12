@@ -1,0 +1,23 @@
+                                                contrast   finding  delta     lo     hi  excludes_zero
+                                               P1 VP - D      mass -0.006 -0.022  0.012          False
+                                              P2 VCP - D      mass  0.008 -0.008  0.025          False
+             P3 V - V_ctl (first doubling, 2295 -> 4591)      mass  0.039  0.029  0.047           True
+              P4 V2x - V (second doubling, 4591 -> 9182)      mass  0.009  0.001  0.016           True
+                          P5 V2x - V_ctl (two doublings)      mass  0.047  0.033  0.061           True
+P6 (V2x - V) - (V - V_ctl) (second minus first doubling)      mass -0.030 -0.040 -0.020           True
+                                               P1 VP - D      calc -0.018 -0.039  0.003          False
+                                              P2 VCP - D      calc -0.032 -0.050 -0.012           True
+             P3 V - V_ctl (first doubling, 2295 -> 4591)      calc  0.019  0.007  0.032           True
+              P4 V2x - V (second doubling, 4591 -> 9182)      calc  0.017  0.007  0.026           True
+                          P5 V2x - V_ctl (two doublings)      calc  0.036  0.019  0.054           True
+P6 (V2x - V) - (V - V_ctl) (second minus first doubling)      calc -0.003 -0.017  0.012          False
+                                               P1 VP - D asymmetry -0.001 -0.017  0.015          False
+                                              P2 VCP - D asymmetry  0.013 -0.001  0.028          False
+             P3 V - V_ctl (first doubling, 2295 -> 4591) asymmetry  0.036  0.024  0.047           True
+              P4 V2x - V (second doubling, 4591 -> 9182) asymmetry  0.013  0.002  0.024           True
+                          P5 V2x - V_ctl (two doublings) asymmetry  0.049  0.032  0.067           True
+P6 (V2x - V) - (V - V_ctl) (second minus first doubling) asymmetry -0.023 -0.037 -0.009           True
+  arm   finding  n_seeds   auc    lo    hi
+V_ctl      mass        3 0.784 0.759 0.809
+V_ctl      calc        3 0.680 0.651 0.710
+V_ctl asymmetry        3 0.599 0.577 0.621

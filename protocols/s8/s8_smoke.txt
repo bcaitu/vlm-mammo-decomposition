@@ -1,0 +1,10 @@
+s8 smoke 2026-10-08 (GPU 2/3 alone, f32 rows, bs 4 x accum 4):
+VC (tower LoRA, lr_vis 5e-5, 30 steps, 480 rows):
+trainable 52536832 of which vision 8889856 rows 480 micro-batches/epoch 120
+step 25/30 ep 0 loss 0.5733 lr 7.16e-06 182s mem 32.1G
+finished 30 218
+V (language LoRA only, 30 steps, 480 rows):
+trainable 43646976 of which vision 0 rows 480 micro-batches/epoch 120
+step 25/30 ep 0 loss 0.5776 lr 7.16e-06 127s mem 29.8G
+finished 30 153
+lc_score.py with the tower adapter (ckpt_6, 8 VS rows): ok, 1051474 bytes

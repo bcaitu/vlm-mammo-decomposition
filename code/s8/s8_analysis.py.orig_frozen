@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""s8 (paper 4): analysis of the vision-tower LoRA arm (VC), the probe on its hidden states (VCP) and the 2x step-budget arm (V2x) against the s6lc arms at the top size
+(V, VP, D, A_probe, A_tf; loaded from runs_lc exactly as in lc_analysis.py). AUC per finding on EMBED test; 2,000 patient-level bootstrap resamples (seed 20261007, identical to s6lc);
+interval = percentile interval of the seed-mean. Contrasts and verdict rules: see prereg/s8_prereg_ru.md section 5.
+usage: PYTHONPATH=$PWD:$PWD/analysis_embed python3 analysis_embed/s8_analysis.py --out runs_s8/analysis [--boot 2000]"""
+import argparse, json, os
+import numpy as np, pandas as pd, torch
+ap = argparse.ArgumentParser(); ap.add_argument("--out", required=True); ap.add_argument("--boot", type=int, default=2000); ap.add_argument("--sets", default="runs_lc/sets"); a = ap.parse_args()
+os.makedirs(a.out, exist_ok=True); SEEDS = [0, 1, 2]; FIND = ["mass", "calc", "asymmetry"]; J = {f: i for i, f in enumerate(FIND)}
+meta = json.load(open(f"{a.sets}/meta.json")); te = json.load(open(f"{a.sets}/test_embed.json")); n = len(te); tix = {s: i for i, s in enumerate(te)}
+Y = {f: np.array([meta[s]["y"][J[f]] for s in te]) for f in FIND}; pats = np.array([meta[s]["p"] for s in te]); up, pinv = np.unique(pats, return_inverse=True)
+rng = np.random.default_rng(20261007); R = a.boot
+cnt = rng.multinomial(len(up), np.full(len(up), 1.0 / len(up)), size=R).astype(np.float32)
+Wall = np.vstack([np.ones((1, len(up)), np.float32), cnt])[:, pinv]
+jit = np.random.default_rng(1).random(n) * 1e-9
+def zload(p): return np.load(p, allow_pickle=True) if os.path.exists(p) else None
+def align(ids, vec):
+    ix = {s: i for i, s in enumerate(ids)}; out = np.full(n, np.nan, np.float32)
+    for s, i in tix.items():
+        if s in ix: out[i] = vec[ix[s]]
+    return out
+def logp(path):
+    z = zload(path); return None if z is None else {f: align([str(x) for x in z["sample_id"]], -z["logp_no"][:, J[f]]) for f in FIND}
+def probe(path):
+    z = zload(path); return None if z is None else {f: align([str(x) for x in z["test_sid"]], z["best_" + f]) for f in FIND}
+def scores(arm, seed):
+    try:
+        if arm == "V": return logp(f"runs_lc/V/f1_s{seed}/ext.npz")
+        if arm == "VP": return probe(f"runs_lc/V/f1_s{seed}/probe.npz")
+        if arm == "VC": return logp(f"runs_s8/VC/f1_s{seed}/ext.npz")
+        if arm == "VCP": return probe(f"runs_s8/VC/f1_s{seed}/probe.npz")
+        if arm == "V2x": return logp(f"runs_s8/V2x/f1_s{seed}/ext.npz")
+        if arm == "A_probe":
+            z = zload("runs_lc/A/probe_f1_s0.npz"); return None if z is None else {f: align([str(x) for x in z["test_sid"]], z["best_" + f]) for f in FIND}
+        if arm == "A_tf":
+            z = zload(f"runs_lc/A/tf_f1_s{seed}.npz"); return None if z is None else {f: align([str(x) for x in z["test_sid"]], z["score_" + f]) for f in FIND}
+        if arm == "D":
+            p = f"runs_lc/D/f1_s{seed}/dump_test_embed.pt"
+            if not os.path.exists(p): return None
+            d = torch.load(p, map_location="cpu"); return {f: align(list(d["sample_id"]), d["p_" + f][:, 1].numpy()) for f in FIND}
+    except Exception as e:
+        print("load error", arm, seed, repr(e)[:150]); return None
+def boot_auc(s, f):
+    k = (Y[f] >= 0) & ~np.isnan(s)
+    if k.sum() < 50: return None
+    y = Y[f][k].astype(np.float32); sc = s[k] + jit[k]; o = np.argsort(sc); W = Wall[:, k][:, o]; ys = y[o]
+    pos = W * ys; neg = W * (1 - ys); cumneg = np.cumsum(neg, axis=1) - neg
+    return (pos * cumneg).sum(1) / (pos.sum(1) * neg.sum(1))
+ARMS = ["V", "VP", "VC", "VCP", "V2x", "D", "A_probe", "A_tf"]; AUC = {}; rows = []
+for arm in ARMS:
+    for f in FIND:
+        lst = []
+        for sd in SEEDS:
+            sc = scores(arm, sd)
+            if sc is None: continue
+            b = boot_auc(sc[f], f)
+            if b is None: continue
+            lst.append(b); k = (Y[f] >= 0) & ~np.isnan(sc[f]); rows.append(dict(arm=arm, finding=f, seed=sd, auc=float(b[0]), n_pos=int((Y[f][k] == 1).sum()), n_neg=int((Y[f][k] == 0).sum())))
+        if lst: AUC[(arm, f)] = np.array(lst)
+pd.DataFrame(rows).to_csv(f"{a.out}/s8_auc_by_run.csv", index=False)
+cur = [dict(arm=arm, finding=f, n_seeds=len(A), auc=float(A.mean(0)[0]), lo=float(np.percentile(A.mean(0)[1:], 2.5)), hi=float(np.percentile(A.mean(0)[1:], 97.5)), sd_seeds=float(A[:, 0].std(ddof=1)) if len(A) > 1 else float("nan")) for (arm, f), A in AUC.items()]
+pd.DataFrame(cur).to_csv(f"{a.out}/s8_auc.csv", index=False)
+def diff(x, y, f):
+    if (x, f) not in AUC or (y, f) not in AUC: return None
+    return AUC[(x, f)].mean(0) - AUC[(y, f)].mean(0)
+def verdict_gain(d, m=0.03):
+    """gain rule (S1, S3, S4): 'adds' if the interval excludes 0 from above; 'equivalent' if the interval lies within (-m, m); 'reduces' if it excludes 0 from below; else 'unclear'."""
+    lo, hi = np.percentile(d[1:], 2.5), np.percentile(d[1:], 97.5)
+    if lo > 0: return "adds (lower bound > 0)" + (" and point >= 0.05" if d[0] >= 0.05 else "")
+    if hi < 0: return "reduces (upper bound < 0)"
+    if lo > -m and hi < m: return "equivalent within +-%.2f" % m
+    return "unclear"
+def verdict_gap(d, m=0.03):
+    """gap rule (S2, S5): 'below' if the upper bound < 0; 'not below' if the lower bound > -m; else 'unclear'."""
+    lo, hi = np.percentile(d[1:], 2.5), np.percentile(d[1:], 97.5)
+    if hi < 0: return "below (upper bound < 0)"
+    if lo > -m: return "not below (lower bound > -%.2f)" % m
+    return "unclear"
+con = []
+def add(name, f, d, rule, kind):
+    if d is None: return
+    con.append(dict(contrast=name, finding=f, kind=kind, delta=float(d[0]), lo=float(np.percentile(d[1:], 2.5)), hi=float(np.percentile(d[1:], 97.5)), verdict=rule(d)))
+for f in FIND:
+    add("S1 VC - V (tower gain)", f, diff("VC", "V", f), verdict_gain, "confirmatory" if f != "mass" else "descriptive")
+    add("S2 VC - D (gap to the stage-1 head)", f, diff("VC", "D", f), verdict_gap, "confirmatory" if f != "mass" else "descriptive")
+    add("S3 V2x - V (step-budget gain)", f, diff("V2x", "V", f), verdict_gain, "confirmatory" if f != "mass" else "descriptive")
+    add("S4 VCP - VP (linearly accessible information added by the tower LoRA)", f, diff("VCP", "VP", f), verdict_gain, "confirmatory" if f != "mass" else "descriptive")
+    add("S5 VC - VCP (interface loss in the tower arm)", f, diff("VC", "VCP", f), verdict_gap, "descriptive")
+    add("VC - V2x", f, diff("VC", "V2x", f), verdict_gain, "descriptive")
+    add("VCP - A_probe", f, diff("VCP", "A_probe", f), verdict_gain, "descriptive")
+    add("VCP - A_tf", f, diff("VCP", "A_tf", f), verdict_gain, "descriptive")
+    add("V2x - D", f, diff("V2x", "D", f), verdict_gap, "descriptive")
+C = pd.DataFrame(con); C.to_csv(f"{a.out}/s8_contrasts.csv", index=False)
+json.dump(dict(n_boot=R, arms_found=sorted({k[0] for k in AUC}), seeds_per_arm={arm: int(max((len(AUC[(arm, f)]) for f in FIND if (arm, f) in AUC), default=0)) for arm in ARMS}), open(f"{a.out}/s8_meta.json", "w"), indent=1)
+print(C.round(3).to_string(index=False)); print(pd.DataFrame(cur).round(3).to_string(index=False))
