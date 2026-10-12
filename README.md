@@ -12,7 +12,7 @@ Seven studies were run in sequence between 4 and 9 October 2026: s4v12, s4v3eval
 | `code/<study>/` | Training, extraction, scoring and analysis scripts of each study, and the scripts that build the study reports. |
 | `results/<study>/` | Aggregate output tables and logs of each study (AUC, contrasts, intervals, run metadata). |
 | `data/paper4_numbers.csv` | The table of every number used in the manuscript, with its source. |
-| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S4 and Figures 5 and S1 from `data/` and `results/`. |
+| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S5 and Figures 5 and S1 from `data/` and `results/`. |
 
 ## What is not here
 
@@ -37,6 +37,7 @@ The manuscript tables can be rebuilt without any dataset:
 ```
 python3 tools/make_tables.py          # Tables 1, 2, S1, S2, S3  -> tables/
 python3 tools/build_tables_extra.py   # Table S4                 -> tables/
+python3 tools/build_table_s5.py      # Table S5 (seed-to-seed SD) -> tables/
 python3 tools/fig5_resolution_place.py  # Figure 5               -> figures/
 python3 tools/make_figS1.py           # Figure S1                -> figures/
 ```
