@@ -98,7 +98,7 @@ axb.set_xticklabels(pitch, fontsize=7.2)
 axb.set_xlim(-0.4, 2.4)
 axb.set_ylim(0.45, 1.0)
 axb.set_xlabel('Pixel pitch of the calcification crop (\u00b5m)', fontsize=8)
-axb.set_ylabel('AUC, calcification crop vs normal tissue', fontsize=8)
+axb.set_ylabel('AUC, calcification windows vs negative windows', fontsize=8)
 axb.legend(frameon=False, fontsize=7.0, loc='upper left', handlelength=2.0,
            bbox_to_anchor=(0.01, 0.76))
 axb.text(0.02, 0.43,

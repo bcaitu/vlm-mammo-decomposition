@@ -393,3 +393,23 @@ ZOOM_vs_norm_mean_ds2,calc,0.9090258974582932,,,s7zoom_probe_results.json,AUC ag
 ZOOM_vs_same_mean_ds2,calc,0.9737941086557778,,,s7zoom_probe_results.json,AUC against same-image windows only (no interval)
 ZOOM_vs_norm_mean_ds4,calc,0.8411760852476199,,,s7zoom_probe_results.json,AUC against normal-image windows only (no interval)
 ZOOM_vs_same_mean_ds4,calc,0.9590084286837278,,,s7zoom_probe_results.json,AUC against same-image windows only (no interval)
+COUNT_test_embed_negatives,mass,9781.0,,,data/lc_auc_by_run.csv column n_neg (labelled negatives of the EMBED test set),count
+COUNT_test_embed_negatives,calc,9784.0,,,same,count
+COUNT_test_embed_negatives,asymmetry,9781.0,,,same,count
+SEEDSD_max_confirmatory,,0.0182,,,"computed: largest sample SD (n=3 seeds) of the full-size AUC over the arms of Table 1, calcifications and asymmetry (data/lc_auc_by_run.csv, data/s8_auc_by_run.csv)",computed
+SEEDSD_Vctl,mass,0.0252,,,"computed: sample SD (n=3 seeds) of the 2,295-step VLM arm, mass (data/lc_auc_by_run.csv)",computed
+DESC_VP-A_probe,calc,-0.006109,,,computed: AUC_VP minus AUC_A_probe (seed-mean AUC of VP minus deterministic A_probe; no interval computed),"computed, point estimate only"
+DESC_VP-A_probe,asymmetry,0.003452,,,computed: AUC_VP minus AUC_A_probe (seed-mean AUC of VP minus deterministic A_probe; no interval computed),"computed, point estimate only"
+DESC_VP-A_probe,mass,0.027653,,,computed: AUC_VP minus AUC_A_probe (seed-mean AUC of VP minus deterministic A_probe; no interval computed),"computed, point estimate only"
+ZOOM_hf_native,calc,0.7054491658660146,,,"s7zoom_probe_results.json hf_energy_auc_native (single high-frequency statistic, no cross-validation)",reference statistic
+ZOOM_hf_ds4,calc,0.7251843319649459,,,s7zoom_probe_results.json hf_energy_auc_ds4,reference statistic
+BUDGET_V_pass_min,,0.166599,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_max,,5.33101,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_min,,6.684073,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_max,,11.09329,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_ratio_f1,,10.511435,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_ratio_f2,,17.161569,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_f1,,0.999809,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_f1,,10.509432,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_f2,,0.55532,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_f2,,9.530232,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed

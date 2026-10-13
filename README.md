@@ -12,7 +12,7 @@ Seven studies were run in sequence between 4 and 9 October 2026: s4v12, s4v3eval
 | `code/<study>/` | Training, extraction, scoring and analysis scripts of each study, and the scripts that build the study reports. |
 | `results/<study>/` | Aggregate output tables and logs of each study (AUC, contrasts, intervals, run metadata). |
 | `data/paper4_numbers.csv` | The table of every number used in the manuscript, with its source. |
-| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S5 and Figures 5 and S1 from `data/` and `results/`. |
+| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S7 and Figures 1-5, S1 and S2 from `data/` and `results/`. |
 
 ## What is not here
 
@@ -37,10 +37,16 @@ The manuscript tables can be rebuilt without any dataset:
 ```
 python3 tools/make_tables.py          # Tables 1, 2, S1, S2, S3  -> tables/
 python3 tools/build_tables_extra.py   # Table S4                 -> tables/
-python3 tools/build_table_s5.py      # Table S5 (seed-to-seed SD) -> tables/
+python3 tools/build_table_s5.py       # Table S5 (seed-to-seed SD) -> tables/
+python3 tools/build_tables_s6_s7.py   # Tables S6, S7 (recipes; updates, checkpoints, passes) -> tables/
+python3 tools/make_fig1_design.py     # Figure 1                 -> figures/
+python3 tools/make_fig2_fig3.py       # Figures 2 and 3          -> figures/
+python3 tools/make_fig4_gap.py        # Figure 4                 -> figures/
 python3 tools/fig5_resolution_place.py  # Figure 5               -> figures/
-python3 tools/make_figS1.py           # Figure S1                -> figures/
+python3 tools/make_figS1.py           # Figures S1 and S2        -> figures/
 ```
+
+`tools/extract_training_budget.py` reads the training logs on the compute server and wrote `results/s6lc/lc_training_budget.csv` (steps, selected checkpoints, epochs and rows per epoch of the V and D runs); it does not run without the server's `~/cbmammo` directory. `tools/build_tables_s6_s7.py` rewrites the `BUDGET_*` rows of `data/paper4_numbers.csv` from that file.
 
 Python packages needed: pandas, numpy, matplotlib.
 

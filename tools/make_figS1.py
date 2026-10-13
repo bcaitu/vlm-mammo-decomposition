@@ -8,8 +8,8 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 # top to bottom; colours are threaded with the s6lc figures (V vermillion, VP blue, A_probe light blue, A_tf green, D pink); the new focal arm VC is black
 ARMS = [("D", "DINOv2 head", "#CC79A7", True), ("A_tf", "base model: transformer head, tower tokens", "#009E73", True), ("A_probe", "base model: linear probe, hidden states", "#56B4E9", False),
-        ("VP", "probe on LoRA-VLM states", "#0072B2", True), ("VCP", "probe on tower-LoRA states", "#1b2a6b", True),
-        ("V", "LoRA VLM (language side)", "#D55E00", True), ("V2x", "LoRA VLM (language side), 2x steps", "#E69F00", True), ("VC", "LoRA VLM (language side + tower)", "#111111", True)]
+        ("VP", "probe on LoRA-VLM states", "#0072B2", True), ("VCP", "probe on vision-side-LoRA states", "#1b2a6b", True),
+        ("V", "LoRA VLM (language side)", "#D55E00", True), ("V2x", "LoRA VLM (language side), 2x steps", "#E69F00", True), ("VC", "LoRA VLM (language + vision side)", "#111111", True)]
 FIND = [("mass", "Mass (control)"), ("calc", "Calcifications"), ("asymmetry", "Asymmetry")]
 def panel_letter(ax, letter, dx=-0.18, dy=1.02, fontsize=None):
     ax.text(dx, dy, letter, transform=ax.transAxes, fontweight="bold", fontsize=fontsize or 10, va="bottom", ha="left")
@@ -37,8 +37,8 @@ def make_fig1(auc_csv, byrun_csv=None, span=0.24):
     return fig
 def make_fig2(contrasts_csv):
     C = pd.read_csv(contrasts_csv)
-    groups = [("S1", "S1  Gain from tuning the vision tower: tower-LoRA VLM minus language-side VLM", True), ("S3", "S3  Gain from doubling the step budget: 2x-step VLM minus VLM", True),
-              ("S4", "S4  Linearly accessible information: probe on tower-LoRA states minus probe on VLM states", True), ("S2", "S2  Gap to the DINOv2 head: tower-LoRA VLM minus DINOv2 head", False)]
+    groups = [("S1", "S1  Gain from tuning the vision side: vision-side-LoRA VLM minus language-side VLM", True), ("S3", "S3  Gain from doubling the step budget: 2x-step VLM minus VLM", True),
+              ("S4", "S4  Linearly accessible information: probe on vision-side-LoRA states minus probe on VLM states", True), ("S2", "S2  Gap to the DINOv2 head: vision-side-LoRA VLM minus DINOv2 head", False)]
     fig, ax = plt.subplots(figsize=(7.2, 4.1), gridspec_kw=dict(left=0.135, right=0.985, bottom=0.2, top=0.97))
     order = [("calc", "Calcifications", True), ("asymmetry", "Asymmetry", True), ("mass", "Mass (control)", False)]
     yt, yl = [], []; lo_all, hi_all = [0.0], [0.06]
@@ -63,9 +63,11 @@ def make_fig2(contrasts_csv):
 
 if __name__ == "__main__":
     import os, sys
-    try: apply_figure_style()  # provided by the figure-style skill of the Claude Science kernel; plain matplotlib defaults otherwise
-    except NameError: pass
+    mpl.rcParams.update({"font.size": 7, "axes.titlesize": 8, "axes.labelsize": 7, "xtick.labelsize": 6, "ytick.labelsize": 6, "legend.fontsize": 6, "figure.dpi": 150})  # sizes of the figure-style used for the other figures
     A = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results", "s8")
-    fig = make_fig1(os.path.join(A, "s8_auc.csv"), os.path.join(A, "s8_auc_by_run.csv"))
     os.makedirs(os.path.join(os.path.dirname(A), "..", "figures"), exist_ok=True)
-    fig.savefig(os.path.join(os.path.dirname(A), "..", "figures", "figS1_s8_auc.png"), dpi=300)
+    fig = make_fig1(os.path.join(A, "s8_auc.csv"), os.path.join(A, "s8_auc_by_run.csv"))
+    for ax in fig.axes: ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    fig.savefig(os.path.join(os.path.dirname(A), "..", "figures", "figS1_s8_auc.png"), dpi=300, bbox_inches="tight")
+    fig2 = make_fig2(os.path.join(A, "s8_contrasts.csv"))
+    fig2.savefig(os.path.join(os.path.dirname(A), "..", "figures", "figS2_s8_contrasts.png"), dpi=300, bbox_inches="tight")
