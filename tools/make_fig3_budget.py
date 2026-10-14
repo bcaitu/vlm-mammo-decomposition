@@ -1,5 +1,5 @@
-"""Figure 4 (s10db: the DINOv2 head at the update budget of the VLM) and Figure S4 (examination-type strata).
-Run from the package root: python3 build/make_fig4_budget.py"""
+"""Figure 3 (s10db: the DINOv2 head at the update budget of the VLM) and Figure S4 (examination-type strata).
+Run from the package root: python3 build/make_fig3_budget.py"""
 import warnings; warnings.filterwarnings("ignore")
 import matplotlib as mpl
 mpl.use("Agg")
@@ -61,7 +61,7 @@ for ax, L in zip(axb, 'def'):
     ax.text(-0.08 if ax is not axb[0] else -1.25, 1.06, L, transform=ax.transAxes, fontsize=10, fontweight='bold', ha='right', va='bottom')
 for ax, (f, title) in zip(axb, F):
     ax.set_title(title, loc='left', pad=3)
-fig.savefig('figures/fig4_budget.png', dpi=300)
+fig.savefig('figures/fig3_budget.png', dpi=300)
 
 # ---------- Figure S4: strata ----------
 p2 = pd.read_csv(D + 's10an_posthoc_tables/ph2_auc_by_stratum.csv'); da = pd.read_csv(D + 's10db_posthoc_tables/dbph_auc_by_stratum.csv')

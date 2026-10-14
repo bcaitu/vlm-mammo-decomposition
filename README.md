@@ -40,11 +40,11 @@ python3 tools/build_tables_extra.py   # Table S4                 -> tables/
 python3 tools/build_table_s5.py       # Table S5 (seed-to-seed SD) -> tables/
 python3 tools/build_tables_s6_s7.py   # Tables S6, S7 (recipes; updates, checkpoints, passes) -> tables/
 python3 tools/make_fig1_design.py     # Figure 1                 -> figures/
-python3 tools/make_fig2_fig3.py       # Figures 2 and 3          -> figures/
+python3 tools/make_fig2_fig3.py       # Figures 2 and 4 (learning curves; contrasts K1-K4) -> figures/
 python3 tools/build_s10_numbers.py    # S10_* rows of data/paper4_numbers.csv from results/s10/
 python3 tools/build_tables_s8_s11.py  # Tables S8-S11 (s10db, s10an, labels and composition, strata) -> tables/
 python3 tools/make_fig4_gap.py        # Figure S3 (distance to D; Figure 4 of drafts 1-3) -> figures/
-python3 tools/make_fig4_budget.py     # Figure 4 (head at the updates of the VLM) and Figure S4 (strata) -> figures/
+python3 tools/make_fig3_budget.py     # Figure 3 (head at the updates of the VLM) and Figure S4 (strata) -> figures/
 python3 tools/fig5_resolution_place.py  # Figure 5               -> figures/
 python3 tools/make_figS1.py           # Figures S1 and S2        -> figures/
 ```
