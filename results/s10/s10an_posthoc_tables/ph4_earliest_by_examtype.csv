@@ -1,0 +1,13 @@
+subset,exam_type,finding,breasts,present,absent
+earliest examination,screening,mass,2907,133,2774
+earliest examination,screening,calc,2977,203,2774
+earliest examination,screening,asymmetry,3325,551,2774
+earliest examination,diagnostic,mass,318,128,190
+earliest examination,diagnostic,calc,270,77,193
+earliest examination,diagnostic,asymmetry,268,80,188
+later examinations,screening,mass,6751,130,6621
+later examinations,screening,calc,6733,112,6621
+later examinations,screening,asymmetry,6797,176,6621
+later examinations,diagnostic,mass,325,129,196
+later examinations,diagnostic,calc,374,178,196
+later examinations,diagnostic,asymmetry,429,231,198

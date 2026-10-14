@@ -1,0 +1,4 @@
+finding,C1,C2,C3,reading_C1_C2,share_of_K3_due_to_D_training_length
+mass,not below (lower bound > -0.03),reduces (upper bound < 0),not below (lower bound > -0.03),"the gap is explained by the longer training of D: at the updates of V, D reaches V",0.8957872477269848
+calc,unclear,reduces (upper bound < 0),unclear,"unclear or other: described as is, no conclusion from the table",0.5816578623445373
+asymmetry,not below (lower bound > -0.03),reduces (upper bound < 0),below (upper bound < 0),"the gap is explained by the longer training of D: at the updates of V, D reaches V",0.9532353097298158

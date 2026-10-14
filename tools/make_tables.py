@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Tables 1, 2, S1, S2, S3 from data/paper4_numbers.csv (run from the repository root: python3 tools/make_tables.py).
+"""Build Tables 1, 2, S1, S2, S3 from data/paper4_numbers.csv (run from the manuscript folder: python3 build/make_tables.py).
 Table S4 is built by build/build_tables_extra.py from the output tables of the earlier studies.
 Static captions and column layouts are stored below; every number is read from the canonical table."""
 import csv, os
@@ -20,9 +20,7 @@ def ax_(arm, f):
 def cx(k, f):
     r = g(k, f); return f"{sg(r['value'])} [{sg(r['lo'])}, {sg(r['hi'])}]"
 def pr(x): return f'{x:,}'
-def wr(name, s):
-    os.makedirs(os.path.join(ROOT, 'tables'), exist_ok=True)
-    open(os.path.join(ROOT, 'tables', name), 'w', encoding='utf-8').write(s)
+def wr(name, s): open(os.path.join(ROOT, 'tables', name), 'w', encoding='utf-8').write(s)
 
 # ---- Table 1
 H1 = r"""\begin{table}[t]
@@ -122,6 +120,9 @@ chain = [
  (r'''s6lc''', r'''Learning curves and decomposition (V, VP, A, D)''', r'''2026-10-06 21:58; phase 2 later''', r'''68 of 68 and 6 of 6''', r'''explanatory notes only''', r'''no row of the outcome table fully met''', r'''Earlier studies of the same adapters in aggregate; no s6lc test metric'''),
  (r'''s7zoom''', r'''Native-resolution crops with known location''', r'''2026-10-07 19:38''', r'''5 of 5''', r'''none''', r'''unclear''', r'''s6lc results; designed as exploratory'''),
  (r'''s8''', r'''Vision-tower LoRA and doubled steps''', r'''2026-10-08 15:06; phase 2 20:07''', r'''24 of 25 (one expected mismatch), 5 of 5, 1 of 1''', r'''deviation 1: verdict order aligned with the protocol text before any test metric''', r'''calcifications: S1 equivalent, S3 adds; asymmetry: S1 adds, S2 below''', r'''All s6lc test metrics, including V minus D; no metric of VC, VCP or V2x'''),
+ (r'''s10an''', r'''Analyses on the saved test scores of s6lc and s8: VP minus A$_{\mathrm{probe}}$ with an interval (B1), one examination per patient (B2), own against black images on the same breasts (B3), label counts and composition (B4, B5)''', r'''2026-10-13 23:08 (with s10db)''', r'''37 of 37 (checked before each analysis and after both)''', r'''verdict column of B1 written with the s6lc rule instead of the ``gain'' rule of the protocol (same numbers); analysis job restarted once after a hash-check command error, no code change''', r'''B1: equivalent (calcifications, asymmetry); B2: labels of K2, K3, S3 and V minus V$_{\mathrm{ctl}}$ change on the earliest examination; B3: image dependence shown''', r'''All s6lc and s8 test metrics and the second external review'''),
+ (r'''s10db''', r'''DINOv2 head trained for the number of updates of V (D$_{\mathrm{bV}}$) and of V2x (D$_{\mathrm{b2x}}$); contrasts C1--C3''', r'''2026-10-13 23:08 (with s10an)''', r'''37 of 37; 21 runs, exit code 0, updates as specified; K3 reproduced to $10^{-16}$''', r'''none in the analysis; environment variable and dry-run flag added before the freeze''', r'''asymmetry: C1 not below, C2 reduces (gap explained by training length by the rule); calcifications: C1 unclear, C2 reduces (``other''); C3 unclear and below''', r'''All s6lc and s8 test metrics; the expectation written in section 7 of the protocol (``the asymmetry gap remains'') was not confirmed'''),
+ (r'''post hoc''', r'''Examination-type strata (screening, diagnostic) for all arms and contrasts''', r'''not frozen; scripts written after B2 and B5 had been seen; hashes of the main outputs recorded before the run''', r'''--''', r'''--''', r'''V within diagnostic examinations near chance; gaps larger within strata than pooled''', r'''All s10an and s10db results'''),
 ]
 body = ''.join(' & '.join(row) + r' \\' + '\n' for row in chain)
 wr('tableS2_chain.tex', HS2 + body + FS2)

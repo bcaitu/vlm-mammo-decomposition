@@ -1,8 +1,8 @@
 # vlm-mammo-decomposition
 
-Code, study protocols and aggregate results for a controlled decomposition of why an end-to-end vision-language model (Qwen3-VL-8B-Instruct with LoRA) trails a supervised specialist head (the stage-1 head of a BI-RADS concept-bottleneck pipeline on frozen DINOv2 ViT-B/14) on subtle mammographic findings. The repository accompanies a manuscript in preparation (title: "Why an end-to-end vision-language model trails a specialist head on subtle mammographic findings: a controlled decomposition").
+Code, study protocols and aggregate results for a decomposition of the gap between an end-to-end vision-language model (Qwen3-VL-8B-Instruct with LoRA) and a supervised head (the stage-1 head of a BI-RADS concept-bottleneck pipeline on frozen DINOv2 ViT-B/14) on mammographic calcifications and asymmetry. The repository accompanies a manuscript in preparation (title: "Training length, vision tower and read-out in the gap between a vision-language model and a supervised head in mammography").
 
-Seven studies were run in sequence between 4 and 9 October 2026: s4v12, s4v3eval, s4diag, s4res, s6lc, s7zoom and s8.
+Eight studies were run in sequence between 4 and 13 October 2026: s4v12, s4v3eval, s4diag, s4res, s6lc, s7zoom, s8 and s10 (two protocols, s10an and s10db, frozen together on 13 October after an external review of a draft reporting the first seven; `protocols/s10/`). s10db retrains the head for the number of optimiser updates of the VLM; s10an recomputes contrasts on the saved test scores (one examination per patient, probe against base-model read-outs, black images on the same breasts) and tabulates labels and composition; `code/s10/s10an_posthoc.py` and `s10db_posthoc.py` are the post hoc stratification by examination type (not part of the frozen protocols; see `protocols/s10/s10an_posthoc_ru.md`).
 
 ## Layout
 
@@ -28,7 +28,7 @@ Each study had a written protocol with hypotheses, contrasts, decision rules, ma
 
 ## Reproducing
 
-The scripts were run as they are on a shared GPU server, from `~/cbmammo` with `PYTHONPATH` set, and they use the server's cache layout and paths. Most of them import modules of the author's `cbmammo` package: the stage-1 pipeline (also in https://github.com/bcaitu/cbmammo-site-shift) and the report-decoder modules (`cbmammo.reports`, `cbmammo.train_stage2*`), which are not part of this repository. Retraining therefore needs access to the controlled datasets and to those modules.
+The scripts were run as they are on a shared GPU server, from `~/cbmammo` with `PYTHONPATH` set, and they use the server's cache layout and paths. Most of them import modules of the author's `cbmammo` package: the stage-1 pipeline (public at https://github.com/bcaitu/cbmammo-site-shift; the runs here used the version of that code present on the server on 4-13 October 2026) and the report-decoder modules (`cbmammo.reports`, `cbmammo.train_stage2*`), which are not part of this repository. The stage-1 modules that `lc_dtrain.py` and `lc_dtrain_budget.py` import (the head on cached DINOv2 features, the loss with masked unknown labels and the data manifests) are those of the stage-1 repository; the decoder modules are used only by the first two studies (report generation). Retraining therefore needs access to the controlled datasets and to those modules.
 
 Software reported in the manuscript: Python 3.10.12, PyTorch 2.6.0 (CUDA 12.4), transformers 5.17.0, PEFT 0.21.0, scikit-learn 1.7.2, NumPy 2.2.6, SciPy 1.15.3; NVIDIA H200 GPUs.
 
@@ -41,7 +41,10 @@ python3 tools/build_table_s5.py       # Table S5 (seed-to-seed SD) -> tables/
 python3 tools/build_tables_s6_s7.py   # Tables S6, S7 (recipes; updates, checkpoints, passes) -> tables/
 python3 tools/make_fig1_design.py     # Figure 1                 -> figures/
 python3 tools/make_fig2_fig3.py       # Figures 2 and 3          -> figures/
-python3 tools/make_fig4_gap.py        # Figure 4                 -> figures/
+python3 tools/build_s10_numbers.py    # S10_* rows of data/paper4_numbers.csv from results/s10/
+python3 tools/build_tables_s8_s11.py  # Tables S8-S11 (s10db, s10an, labels and composition, strata) -> tables/
+python3 tools/make_fig4_gap.py        # Figure S3 (distance to D; Figure 4 of drafts 1-3) -> figures/
+python3 tools/make_fig4_budget.py     # Figure 4 (head at the updates of the VLM) and Figure S4 (strata) -> figures/
 python3 tools/fig5_resolution_place.py  # Figure 5               -> figures/
 python3 tools/make_figS1.py           # Figures S1 and S2        -> figures/
 ```

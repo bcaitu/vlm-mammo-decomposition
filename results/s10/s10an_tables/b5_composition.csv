@@ -1,0 +1,54 @@
+partition,breasts,patients,examinations,exams_per_patient_mean,exams_per_patient_median,age_n,age_median,age_q1,age_q3,age_min,age_max,variable,category,n
+EMBED training pool,65082.0,13441.0,39252.0,2.9203184286883417,2.0,64903.0,58.99915809359535,49.56980636152693,67.97675516951067,19.31593393430392,89.0,summary,,65082
+EMBED training pool,,,,,,,,,,,,density (tissueden),B,27115
+EMBED training pool,,,,,,,,,,,,density (tissueden),C,26155
+EMBED training pool,,,,,,,,,,,,density (tissueden),A,7540
+EMBED training pool,,,,,,,,,,,,density (tissueden),D,3838
+EMBED training pool,,,,,,,,,,,,density (tissueden),missing,434
+EMBED training pool,,,,,,,,,,,,vendor,hologic,65082
+EMBED training pool,,,,,,,,,,,,examination type,screening,56162
+EMBED training pool,,,,,,,,,,,,examination type,diagnostic,8920
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),African American  or Black,31269
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Caucasian or White,25789
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),"Unknown, Unavailable or Unreported",3862
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Asian,3366
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Native Hawaiian or Other Pacific Islander,298
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Multiple,180
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),missing,179
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),American Indian or Alaskan Native,134
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Patient Declines,<10
+EMBED training pool,,,,,,,,,,,,race (RACE_DESC),Not Recorded,<10
+EMBED validation sample,2000.0,1050.0,1819.0,1.7323809523809524,1.0,1996.0,58.59394785656105,48.78402705052123,67.77346557424177,30.71110289739009,89.0,summary,,2000
+EMBED validation sample,,,,,,,,,,,,density (tissueden),C,824
+EMBED validation sample,,,,,,,,,,,,density (tissueden),B,820
+EMBED validation sample,,,,,,,,,,,,density (tissueden),A,213
+EMBED validation sample,,,,,,,,,,,,density (tissueden),D,134
+EMBED validation sample,,,,,,,,,,,,density (tissueden),missing,<10
+EMBED validation sample,,,,,,,,,,,,vendor,hologic,2000
+EMBED validation sample,,,,,,,,,,,,examination type,screening,1726
+EMBED validation sample,,,,,,,,,,,,examination type,diagnostic,274
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),African American  or Black,997
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),Caucasian or White,746
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),"Unknown, Unavailable or Unreported",124
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),Asian,106
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),Native Hawaiian or Other Pacific Islander,19
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),missing,<10
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),American Indian or Alaskan Native,<10
+EMBED validation sample,,,,,,,,,,,,race (RACE_DESC),Multiple,<10
+EMBED test,13178.0,2743.0,7919.0,2.88698505286183,2.0,13142.0,59.142898211462246,49.690274269834426,67.86655441247939,20.5123992963579,89.0,summary,,13178
+EMBED test,,,,,,,,,,,,density (tissueden),B,5474
+EMBED test,,,,,,,,,,,,density (tissueden),C,5255
+EMBED test,,,,,,,,,,,,density (tissueden),A,1660
+EMBED test,,,,,,,,,,,,density (tissueden),D,708
+EMBED test,,,,,,,,,,,,density (tissueden),missing,81
+EMBED test,,,,,,,,,,,,vendor,hologic,13178
+EMBED test,,,,,,,,,,,,examination type,screening,11431
+EMBED test,,,,,,,,,,,,examination type,diagnostic,1747
+EMBED test,,,,,,,,,,,,race (RACE_DESC),African American  or Black,6353
+EMBED test,,,,,,,,,,,,race (RACE_DESC),Caucasian or White,5366
+EMBED test,,,,,,,,,,,,race (RACE_DESC),"Unknown, Unavailable or Unreported",663
+EMBED test,,,,,,,,,,,,race (RACE_DESC),Asian,656
+EMBED test,,,,,,,,,,,,race (RACE_DESC),Multiple,38
+EMBED test,,,,,,,,,,,,race (RACE_DESC),missing,36
+EMBED test,,,,,,,,,,,,race (RACE_DESC),American Indian or Alaskan Native,33
+EMBED test,,,,,,,,,,,,race (RACE_DESC),Native Hawaiian or Other Pacific Islander,33

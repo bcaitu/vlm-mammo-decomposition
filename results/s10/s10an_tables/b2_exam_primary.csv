@@ -1,0 +1,61 @@
+set,contrast,finding,delta,lo,hi,verdict
+full test,K1 VP - A_tf (A* at the full size),mass,0.008421123027801514,-0.003871309570968151,0.020138930529356003,equivalent within +-0.03
+full test,K1 VP - A_tf (A* at the full size),calc,0.01823878288269043,0.0037496075965464115,0.0330204963684082,inconclusive
+full test,K1 VP - A_tf (A* at the full size),asymmetry,0.0009472966194152832,-0.011841047555208206,0.01364807691425085,equivalent within +-0.03
+full test,K1b VP - A_probe,mass,0.02765268087387085,0.010769516229629517,0.04525565728545189,inconclusive
+full test,K1b VP - A_probe,calc,-0.0061092376708984375,-0.012437921948730946,4.250599886290729e-05,equivalent within +-0.03
+full test,K1b VP - A_probe,asymmetry,0.003451704978942871,-0.009532044641673565,0.015034436248242855,equivalent within +-0.03
+full test,K2 V - VP,mass,-0.018802344799041748,-0.030665140599012375,-0.00639262143522501,not above by more than 0.03
+full test,K2 V - VP,calc,-0.029634714126586914,-0.049330934882164,-0.010814427398145199,not above by more than 0.03
+full test,K2 V - VP,asymmetry,-0.046792566776275635,-0.0653705969452858,-0.027123164385557175,not above by more than 0.03
+full test,K3 V - D,mass,-0.02446579933166504,-0.044014208018779755,-0.002439940581098199,equivalent within +-0.05
+full test,K3 V - D,calc,-0.047987520694732666,-0.07258691638708115,-0.023654552176594734,not above by more than 0.05
+full test,K3 V - D,asymmetry,-0.04828435182571411,-0.06940482556819916,-0.026957742869853973,not above by more than 0.05
+full test,S1 VC - V,mass,0.010369837284088135,0.004302624147385359,0.0164688341319561,adds (lower bound > 0)
+full test,S1 VC - V,calc,-0.00488203763961792,-0.013627519831061363,0.0048279305920004845,equivalent within +-0.03
+full test,S1 VC - V,asymmetry,0.02020508050918579,0.011167705059051514,0.029700065031647682,adds (lower bound > 0)
+full test,S2 VC - D,mass,-0.014095962047576904,-0.033531010150909424,0.007207602262496948,unclear
+full test,S2 VC - D,calc,-0.052869558334350586,-0.07683967053890228,-0.02803853526711464,below (upper bound < 0)
+full test,S2 VC - D,asymmetry,-0.02807927131652832,-0.04561568796634674,-0.009738534688949585,below (upper bound < 0)
+full test,S3 V2x - V,mass,0.00875931978225708,0.0012033164966851473,0.016362523660063744,adds (lower bound > 0)
+full test,S3 V2x - V,calc,0.01653873920440674,0.00728997029364109,0.026208704337477684,adds (lower bound > 0)
+full test,S3 V2x - V,asymmetry,0.012921750545501709,0.0022855685092508793,0.023549538105726242,adds (lower bound > 0)
+full test,S4 VCP - VP,mass,0.013796389102935791,0.003721061395481229,0.023509982973337173,adds (lower bound > 0)
+full test,S4 VCP - VP,calc,-0.013329863548278809,-0.0246054045855999,-0.0020818477496504784,equivalent within +-0.03
+full test,S4 VCP - VP,asymmetry,0.014920592308044434,0.0050584240816533566,0.024111539125442505,adds (lower bound > 0)
+full test,S5 VC - VCP,mass,-0.022228896617889404,-0.03336530923843384,-0.010997517965734005,below (upper bound < 0)
+full test,S5 VC - VCP,calc,-0.021186888217926025,-0.03954057767987251,-0.0026465565897524357,below (upper bound < 0)
+full test,S5 VC - VCP,asymmetry,-0.04150807857513428,-0.05523254722356796,-0.02685905434191227,below (upper bound < 0)
+full test,desc V - V_ctl,mass,0.03850913047790527,0.02941216342151165,0.047457218170166016,inconclusive
+full test,desc V - V_ctl,calc,0.019337356090545654,0.00689559755846858,0.03218764811754227,inconclusive
+full test,desc V - V_ctl,asymmetry,0.03580594062805176,0.024303527548909187,0.046921033412218094,inconclusive
+earliest examination per patient,K1 VP - A_tf (A* at the full size),mass,-0.007070779800415039,-0.024144748225808144,0.00987724307924509,equivalent within +-0.03
+earliest examination per patient,K1 VP - A_tf (A* at the full size),calc,0.010439395904541016,-0.008961254730820656,0.03060809150338173,inconclusive
+earliest examination per patient,K1 VP - A_tf (A* at the full size),asymmetry,-0.00658261775970459,-0.02134285867214203,0.009126419201493263,equivalent within +-0.03
+earliest examination per patient,K1b VP - A_probe,mass,0.022060811519622803,0.0013103560777381063,0.04423074051737785,inconclusive
+earliest examination per patient,K1b VP - A_probe,calc,-0.00213545560836792,-0.010065135546028614,0.005388597026467323,equivalent within +-0.03
+earliest examination per patient,K1b VP - A_probe,asymmetry,-0.003275752067565918,-0.019326142966747284,0.012185306288301945,equivalent within +-0.03
+earliest examination per patient,K2 V - VP,mass,-0.0264320969581604,-0.042243119329214096,-0.009956846944987774,not above by more than 0.03
+earliest examination per patient,K2 V - VP,calc,-0.0558091402053833,-0.08560489863157272,-0.027649957686662674,not above by more than 0.03
+earliest examination per patient,K2 V - VP,asymmetry,-0.08640807867050171,-0.11026330292224884,-0.0630679577589035,below by more than 0.03
+earliest examination per patient,K3 V - D,mass,-0.04889923334121704,-0.07547875493764877,-0.01902286522090435,not above by more than 0.05
+earliest examination per patient,K3 V - D,calc,-0.1099885106086731,-0.14265960454940796,-0.07664244621992111,below by more than 0.05
+earliest examination per patient,K3 V - D,asymmetry,-0.10343879461288452,-0.1290840208530426,-0.07684782147407532,below by more than 0.05
+earliest examination per patient,S1 VC - V,mass,0.01649630069732666,0.0069526867009699345,0.02522285468876362,adds (lower bound > 0)
+earliest examination per patient,S1 VC - V,calc,0.00217515230178833,-0.009771883487701416,0.014219293370842934,equivalent within +-0.03
+earliest examination per patient,S1 VC - V,asymmetry,0.03421908617019653,0.023111388087272644,0.04536665976047516,adds (lower bound > 0)
+earliest examination per patient,S2 VC - D,mass,-0.03240293264389038,-0.057795245200395584,-0.00402893265709281,below (upper bound < 0)
+earliest examination per patient,S2 VC - D,calc,-0.10781335830688477,-0.13929666578769684,-0.0737181305885315,below (upper bound < 0)
+earliest examination per patient,S2 VC - D,asymmetry,-0.06921970844268799,-0.09243559092283249,-0.04560645669698715,below (upper bound < 0)
+earliest examination per patient,S3 V2x - V,mass,0.006514906883239746,-0.004179882816970348,0.017608297988772392,equivalent within +-0.03
+earliest examination per patient,S3 V2x - V,calc,0.017542660236358643,0.003732952754944563,0.03212174028158188,adds (lower bound > 0)
+earliest examination per patient,S3 V2x - V,asymmetry,0.007190406322479248,-0.007619224488735199,0.021510208025574684,equivalent within +-0.03
+earliest examination per patient,S4 VCP - VP,mass,0.020161926746368408,0.006363143213093281,0.03449429199099541,adds (lower bound > 0)
+earliest examination per patient,S4 VCP - VP,calc,-0.010450959205627441,-0.027506478130817413,0.00713639659807086,equivalent within +-0.03
+earliest examination per patient,S4 VCP - VP,asymmetry,0.0204770565032959,0.005950906779617071,0.033581238240003586,adds (lower bound > 0)
+earliest examination per patient,S5 VC - VCP,mass,-0.03009772300720215,-0.045132774859666824,-0.015520583838224411,below (upper bound < 0)
+earliest examination per patient,S5 VC - VCP,calc,-0.04318302869796753,-0.06744927167892456,-0.018464989960193634,below (upper bound < 0)
+earliest examination per patient,S5 VC - VCP,asymmetry,-0.07266604900360107,-0.090511754155159,-0.05372200161218643,below (upper bound < 0)
+earliest examination per patient,desc V - V_ctl,mass,0.03233790397644043,0.019762637093663216,0.04489906132221222,inconclusive
+earliest examination per patient,desc V - V_ctl,calc,-0.01930689811706543,-0.03597257658839226,-0.0022374261170625687,not above by more than 0.03
+earliest examination per patient,desc V - V_ctl,asymmetry,-0.0013707280158996582,-0.015146945603191853,0.012202656827867031,equivalent within +-0.03

@@ -1,0 +1,10 @@
+start 2026-10-13 23:08:57 rows 13178 patients 2743 boot 2000
+reproduction check: max abs error 9.8879238130678e-17 over 18 contrasts
+B1 done 155
+test rows with clinical record: 13178 of 13178
+B2: exams per patient mean 2.88698505286183 median 2.0 max 11 | exams without date 0 | subset rows 4530 patients 2743
+B2 done 196
+B3 done 205
+B4 done 207
+B5 done 208
+all done 2026-10-13 23:12:24 elapsed s 208

@@ -1,0 +1,133 @@
+dataset,partition,finding,state,breasts,patients,partition_breasts,partition_patients
+cbis_ddsm,train (pool),mass,present,642,615,1208,1109
+cbis_ddsm,train (pool),mass,absent,0,0,1208,1109
+cbis_ddsm,train (pool),mass,unknown,566,519,1208,1109
+cbis_ddsm,train (pool),calc,present,587,534,1208,1109
+cbis_ddsm,train (pool),calc,absent,0,0,1208,1109
+cbis_ddsm,train (pool),calc,unknown,621,597,1208,1109
+cbis_ddsm,train (pool),asymmetry,present,24,24,1208,1109
+cbis_ddsm,train (pool),asymmetry,absent,0,0,1208,1109
+cbis_ddsm,train (pool),asymmetry,unknown,1184,1086,1208,1109
+cbis_ddsm,train (pool),distortion,present,69,67,1208,1109
+cbis_ddsm,train (pool),distortion,absent,0,0,1208,1109
+cbis_ddsm,train (pool),distortion,unknown,1139,1052,1208,1109
+cbis_ddsm,validation split,mass,present,80,76,150,139
+cbis_ddsm,validation split,mass,absent,0,0,150,139
+cbis_ddsm,validation split,mass,unknown,70,63,150,139
+cbis_ddsm,validation split,calc,present,75,68,150,139
+cbis_ddsm,validation split,calc,absent,0,0,150,139
+cbis_ddsm,validation split,calc,unknown,75,71,150,139
+cbis_ddsm,validation split,asymmetry,present,<10,<10,150,139
+cbis_ddsm,validation split,asymmetry,absent,0,0,150,139
+cbis_ddsm,validation split,asymmetry,unknown,147,136,150,139
+cbis_ddsm,validation split,distortion,present,11,10,150,139
+cbis_ddsm,validation split,distortion,absent,0,0,150,139
+cbis_ddsm,validation split,distortion,unknown,139,130,150,139
+cbis_ddsm,test split,mass,present,210,201,369,349
+cbis_ddsm,test split,mass,absent,0,0,369,349
+cbis_ddsm,test split,mass,unknown,159,149,369,349
+cbis_ddsm,test split,calc,present,161,151,369,349
+cbis_ddsm,test split,calc,absent,0,0,369,349
+cbis_ddsm,test split,calc,unknown,208,199,369,349
+cbis_ddsm,test split,asymmetry,present,<10,<10,369,349
+cbis_ddsm,test split,asymmetry,absent,0,0,369,349
+cbis_ddsm,test split,asymmetry,unknown,362,343,369,349
+cbis_ddsm,test split,distortion,present,18,18,369,349
+cbis_ddsm,test split,distortion,absent,0,0,369,349
+cbis_ddsm,test split,distortion,unknown,351,333,369,349
+vindr,train (pool),mass,present,447,428,7180,3590
+vindr,train (pool),mass,absent,6733,3571,7180,3590
+vindr,train (pool),mass,unknown,0,0,7180,3590
+vindr,train (pool),calc,present,157,149,7180,3590
+vindr,train (pool),calc,absent,7023,3582,7180,3590
+vindr,train (pool),calc,unknown,0,0,7180,3590
+vindr,train (pool),asymmetry,present,177,177,7180,3590
+vindr,train (pool),asymmetry,absent,7003,3590,7180,3590
+vindr,train (pool),asymmetry,unknown,0,0,7180,3590
+vindr,train (pool),distortion,present,48,48,7180,3590
+vindr,train (pool),distortion,absent,7132,3590,7180,3590
+vindr,train (pool),distortion,unknown,0,0,7180,3590
+vindr,validation split,mass,present,43,41,820,410
+vindr,validation split,mass,absent,777,408,820,410
+vindr,validation split,mass,unknown,0,0,820,410
+vindr,validation split,calc,present,18,17,820,410
+vindr,validation split,calc,absent,802,409,820,410
+vindr,validation split,calc,unknown,0,0,820,410
+vindr,validation split,asymmetry,present,17,17,820,410
+vindr,validation split,asymmetry,absent,803,410,820,410
+vindr,validation split,asymmetry,unknown,0,0,820,410
+vindr,validation split,distortion,present,<10,<10,820,410
+vindr,validation split,distortion,absent,816,410,820,410
+vindr,validation split,distortion,unknown,0,0,820,410
+vindr,test split,mass,present,119,115,2000,1000
+vindr,test split,mass,absent,1881,996,2000,1000
+vindr,test split,mass,unknown,0,0,2000,1000
+vindr,test split,calc,present,54,54,2000,1000
+vindr,test split,calc,absent,1946,1000,2000,1000
+vindr,test split,calc,unknown,0,0,2000,1000
+vindr,test split,asymmetry,present,49,49,2000,1000
+vindr,test split,asymmetry,absent,1951,1000,2000,1000
+vindr,test split,asymmetry,unknown,0,0,2000,1000
+vindr,test split,distortion,present,13,13,2000,1000
+vindr,test split,distortion,absent,1987,1000,2000,1000
+vindr,test split,distortion,unknown,0,0,2000,1000
+embed,train (pool),mass,present,2553,1585,65082,13441
+embed,train (pool),mass,absent,48084,9999,65082,13441
+embed,train (pool),mass,unknown,14445,6298,65082,13441
+embed,train (pool),calc,present,2971,1582,65082,13441
+embed,train (pool),calc,absent,48102,10003,65082,13441
+embed,train (pool),calc,unknown,14009,6364,65082,13441
+embed,train (pool),asymmetry,present,4954,3223,65082,13441
+embed,train (pool),asymmetry,absent,48096,9996,65082,13441
+embed,train (pool),asymmetry,unknown,12032,5026,65082,13441
+embed,train (pool),distortion,present,462,357,65082,13441
+embed,train (pool),distortion,absent,48150,10024,65082,13441
+embed,train (pool),distortion,unknown,16470,6975,65082,13441
+embed,validation split,mass,present,389,243,9020,1804
+embed,validation split,mass,absent,6790,1351,9020,1804
+embed,validation split,mass,unknown,1841,803,9020,1804
+embed,validation split,calc,present,421,211,9020,1804
+embed,validation split,calc,absent,6790,1350,9020,1804
+embed,validation split,calc,unknown,1809,821,9020,1804
+embed,validation split,asymmetry,present,613,399,9020,1804
+embed,validation split,asymmetry,absent,6793,1352,9020,1804
+embed,validation split,asymmetry,unknown,1614,665,9020,1804
+embed,validation split,distortion,present,47,41,9020,1804
+embed,validation split,distortion,absent,6800,1354,9020,1804
+embed,validation split,distortion,unknown,2173,908,9020,1804
+embed,test split,mass,present,520,325,13178,2743
+embed,test split,mass,absent,9781,2007,13178,2743
+embed,test split,mass,unknown,2877,1305,13178,2743
+embed,test split,calc,present,570,312,13178,2743
+embed,test split,calc,absent,9784,2011,13178,2743
+embed,test split,calc,unknown,2824,1292,13178,2743
+embed,test split,asymmetry,present,1038,667,13178,2743
+embed,test split,asymmetry,absent,9781,2009,13178,2743
+embed,test split,asymmetry,unknown,2359,1008,13178,2743
+embed,test split,distortion,present,98,70,13178,2743
+embed,test split,distortion,absent,9789,2013,13178,2743
+embed,test split,distortion,unknown,3291,1425,13178,2743
+embed,"validation sample (2,000)",mass,present,85,71,2000,1050
+embed,"validation sample (2,000)",mass,absent,1504,810,2000,1050
+embed,"validation sample (2,000)",mass,unknown,411,310,2000,1050
+embed,"validation sample (2,000)",calc,present,80,65,2000,1050
+embed,"validation sample (2,000)",calc,absent,1504,810,2000,1050
+embed,"validation sample (2,000)",calc,unknown,416,315,2000,1050
+embed,"validation sample (2,000)",asymmetry,present,134,120,2000,1050
+embed,"validation sample (2,000)",asymmetry,absent,1503,811,2000,1050
+embed,"validation sample (2,000)",asymmetry,unknown,363,262,2000,1050
+embed,"validation sample (2,000)",distortion,present,10,10,2000,1050
+embed,"validation sample (2,000)",distortion,absent,1506,812,2000,1050
+embed,"validation sample (2,000)",distortion,unknown,484,359,2000,1050
+embed,test used in s6lc and s8 (EMBED test),mass,present,520,325,13178,2743
+embed,test used in s6lc and s8 (EMBED test),mass,absent,9781,2007,13178,2743
+embed,test used in s6lc and s8 (EMBED test),mass,unknown,2877,1305,13178,2743
+embed,test used in s6lc and s8 (EMBED test),calc,present,570,312,13178,2743
+embed,test used in s6lc and s8 (EMBED test),calc,absent,9784,2011,13178,2743
+embed,test used in s6lc and s8 (EMBED test),calc,unknown,2824,1292,13178,2743
+embed,test used in s6lc and s8 (EMBED test),asymmetry,present,1038,667,13178,2743
+embed,test used in s6lc and s8 (EMBED test),asymmetry,absent,9781,2009,13178,2743
+embed,test used in s6lc and s8 (EMBED test),asymmetry,unknown,2359,1008,13178,2743
+embed,test used in s6lc and s8 (EMBED test),distortion,present,98,70,13178,2743
+embed,test used in s6lc and s8 (EMBED test),distortion,absent,9789,2013,13178,2743
+embed,test used in s6lc and s8 (EMBED test),distortion,unknown,3291,1425,13178,2743
