@@ -142,6 +142,11 @@ for f, lab in F:
     cells = [n(b5[(b5.finding == f) & (b5.exam_type == et) & (b5.state == s)].breasts.iloc[0]) for et in ['screening', 'diagnostic'] for s in ['present', 'absent', 'unknown']]
     L.append(lab.replace(' (control)', '') + ' & ' + ' & '.join(cells) + r" \\")
 L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+def _unk(f, et): t = b5[(b5.finding == f) & (b5.exam_type == et)]; return 100 * t[t.state == 'unknown'].breasts.sum() / t.breasts.sum()
+UNKTXT = ' Absence of a finding is recorded only for breasts with a negative BI-RADS assessment (Methods); unknown labels are more frequent in diagnostic than in screening examinations: ' + \
+         '; '.join(f'{lab} {_unk(f, "diagnostic"):.1f}\\% against {_unk(f, "screening"):.1f}\\%' for f, lab in (('calc', 'calcifications'), ('asymmetry', 'asymmetry'), ('mass', 'mass'))) + '.'
+assert r"(c) Known labels of the EMBED test set by examination type.}\label{tab:composition}" in L[2]
+L[2] = L[2].replace(r"(c) Known labels of the EMBED test set by examination type.}\label{tab:composition}", r"(c) Known labels of the EMBED test set by examination type." + UNKTXT + r"}\label{tab:composition}")
 open('tables/tableS10_composition.tex', 'w').write('\n'.join(L) + '\n')
 
 # ---------- S11: strata ----------
@@ -164,7 +169,10 @@ for s, slab in ST:
         cells = [ci(src[(src.contrast == k) & (src.stratum == s) & (src.finding == f)].iloc[0]) for f, _ in F]
         L.append(' & ' + lab + ' & ' + ' & '.join(cells) + r" \\")
     if s != 'diagnostic only': L.append(r"\midrule")
-L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
-L[0] = r"\begin{landscape}\begin{table}[p]"; L[-1] = r"\end{table}\end{landscape}"
-open('tables/tableS11_strata.tex', 'w').write('\n'.join(L) + '\n')
+# longtable: the table is longer than one landscape page and must continue on the next page (draft 4 cut off the diagnostic rows)
+cap, head, body = L[2], [L[4], L[5], L[6]], L[7:]
+NEWL = [r"\begin{landscape}", r"{\scriptsize\setlength{\tabcolsep}{2.5pt}", r"\begin{longtable}{@{}llccc@{}}", cap + r"\\"] + head + \
+       [r"\endfirsthead", r"\multicolumn{5}{@{}l}{\textit{Table S11 (continued)}}\\"] + head + [r"\endhead", r"\bottomrule", r"\endfoot"] + body + \
+       [r"\end{longtable}}", r"\end{landscape}"]
+open('tables/tableS11_strata.tex', 'w').write('\n'.join(NEWL) + '\n')
 print('tables S8-S11 written')

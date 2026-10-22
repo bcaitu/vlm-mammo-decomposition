@@ -403,16 +403,6 @@ DESC_VP-A_probe,asymmetry,0.003452,,,computed: AUC_VP minus AUC_A_probe (seed-me
 DESC_VP-A_probe,mass,0.027653,,,computed: AUC_VP minus AUC_A_probe (seed-mean AUC of VP minus deterministic A_probe; no interval computed),"computed, point estimate only"
 ZOOM_hf_native,calc,0.7054491658660146,,,"s7zoom_probe_results.json hf_energy_auc_native (single high-frequency statistic, no cross-validation)",reference statistic
 ZOOM_hf_ds4,calc,0.7251843319649459,,,s7zoom_probe_results.json hf_energy_auc_ds4,reference statistic
-BUDGET_V_pass_min,,0.166599,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_V_pass_max,,5.33101,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_D_pass_min,,6.684073,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_D_pass_max,,11.09329,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_ratio_f1,,10.511435,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_ratio_f2,,17.161569,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_V_pass_f1,,0.999809,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_D_pass_f1,,10.509432,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_V_pass_f2,,0.55532,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
-BUDGET_D_pass_f2,,9.530232,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
 S10_C1,mass,-0.0025496482849121,-0.0186948254704475,0.0160735771059989,s10db s10db_contrasts.csv,descriptive; verdict: not below (lower bound > -0.03)
 S10_C1,calc,-0.0200752019882202,-0.0422696098685264,0.0011650358792394,s10db s10db_contrasts.csv,confirmatory; verdict: unclear
 S10_C1,asymmetry,-0.0022580027580261,-0.0248815808445215,0.0202963091433048,s10db s10db_contrasts.csv,confirmatory; verdict: not below (lower bound > -0.03)
@@ -981,3 +971,22 @@ S10_DBPH_Db2x-DbV_dia,asymmetry,0.025423526763916,0.0049941572360694,0.044762924
 S10_DBPH_SHARE_C2_K3_scr,mass,0.602019255579349,,,post hoc dbph_contrasts_by_stratum.csv,"(D_bV - D)/(V - D) in the screening stratum, point estimate"
 S10_DBPH_SHARE_C2_K3_scr,calc,0.32872808111897517,,,post hoc dbph_contrasts_by_stratum.csv,"(D_bV - D)/(V - D) in the screening stratum, point estimate"
 S10_DBPH_SHARE_C2_K3_scr,asymmetry,0.5644565100170768,,,post hoc dbph_contrasts_by_stratum.csv,"(D_bV - D)/(V - D) in the screening stratum, point estimate"
+S10_UNK_SHARE_scr,calc,15.0556,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_UNK_SHARE_scr,asymmetry,11.4513,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_UNK_SHARE_scr,mass,15.5105,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_UNK_SHARE_dia,calc,63.1368,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_UNK_SHARE_dia,asymmetry,60.103,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_UNK_SHARE_dia,mass,63.194,,,"computed from results/s10/s10an_tables/b5_test_by_examtype.csv: unknown / (present + absent + unknown) breasts of the stratum, in percent",computed
+S10_DRAWS_RATIO,calc,1.4147,,,computed: S10_DRAWS_K3 (mean over 200 random one-examination draws) / K3 (pooled),computed
+S10_DRAWS_RATIO,asymmetry,1.3012,,,computed: S10_DRAWS_K3 (mean over 200 random one-examination draws) / K3 (pooled),computed
+S10_DRAWS_RATIO,mass,1.2083,,,computed: S10_DRAWS_K3 (mean over 200 random one-examination draws) / K3 (pooled),computed
+BUDGET_V_pass_min,,0.166599,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_max,,5.33101,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_min,,6.684073,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_max,,11.09329,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_ratio_f1,,10.511435,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_ratio_f2,,17.161569,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_f1,,0.999809,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_f1,,10.509432,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_V_pass_f2,,0.55532,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed
+BUDGET_D_pass_f2,,9.530232,,,computed from data/lc_training_budget.csv by build/build_tables_s6_s7.py (passes = selected updates x 16 / breasts in the subset),computed

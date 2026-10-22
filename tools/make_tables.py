@@ -20,7 +20,7 @@ def ax_(arm, f):
 def cx(k, f):
     r = g(k, f); return f"{sg(r['value'])} [{sg(r['lo'])}, {sg(r['hi'])}]"
 def pr(x): return f'{x:,}'
-def wr(name, s): open(os.path.join(ROOT, 'tables', name), 'w', encoding='utf-8').write(s)
+def wr(name, s): os.makedirs(os.path.join(ROOT, 'tables'), exist_ok=True); open(os.path.join(ROOT, 'tables', name), 'w', encoding='utf-8').write(s)
 
 # ---- Table 1
 H1 = r"""\begin{table}[t]
@@ -50,7 +50,7 @@ wr('table1_auc.tex', H1 + body + F1)
 # ---- Table 2
 H2 = r"""\begin{table}[tp]
 \centering\footnotesize\setlength{\tabcolsep}{3.5pt}
-\caption{Protocol-frozen contrasts (K1--K4, S1--S5; the confirmatory family for calcifications and asymmetry), a descriptive contrast fixed in the protocol (V$-$V$_{\mathrm{ctl}}$), the point estimate VP$-$A$_{\mathrm{probe}}$ and post hoc contrasts (P2, P6) in test AUC at the full training size, with 95\% intervals over test patients (conditional on the trained models; seed-to-seed variation is in Table S5). Mass is a descriptive control. A difference of 0.05 AUC or more was fixed in the protocols as practically significant; an interval within $\pm$0.03 (K3: $\pm$0.05) was labelled equivalent. A$^{*}$ (K1): the base-model read-out with the higher validation AUC, chosen per training size over the three findings (the transformer head on tower tokens at the full size, although the linear probe has the higher test AUC for calcifications; VP$-$A$_{\mathrm{probe}}$ is given separately). K4: the top size was trained for 4,591 steps and the lower sizes for 2,295; threshold 0.02. V$_{\mathrm{ctl}}$: 2,295-step schedule with the checkpoint chosen on validation (765 to 2,295 steps). Vision side: tower, merger and DeepStack merger.}\label{tab:contrasts}
+\caption{Protocol-frozen contrasts (K1--K4, S1--S5; the confirmatory family for calcifications and asymmetry), a descriptive contrast fixed in the protocol (V$-$V$_{\mathrm{ctl}}$), the paired contrast VP$-$A$_{\mathrm{probe}}$ added in the last study and post hoc contrasts (P2, P6) in test AUC at the full training size, with 95\% intervals over test patients (conditional on the trained models; seed-to-seed variation is in Table S5). Mass is a descriptive control. A difference of 0.05 AUC or more was fixed in the protocols as practically significant; an interval within $\pm$0.03 (K3: $\pm$0.05) was labelled equivalent. A$^{*}$ (K1): the base-model read-out with the higher validation AUC, chosen per training size over the three findings (the transformer head on tower tokens at the full size, although the linear probe has the higher test AUC for calcifications; VP$-$A$_{\mathrm{probe}}$ is given separately). K4: the top size was trained for 4,591 steps, the lower sizes on a 2,295-step schedule with a validation-selected checkpoint (Table S7), so scheduled and selected steps differ; threshold 0.02. V$_{\mathrm{ctl}}$: 2,295-step schedule with the checkpoint chosen on validation (765 to 2,295 steps). Vision side: tower, merger and DeepStack merger.}\label{tab:contrasts}
 \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{4.1cm}ccc@{}}
 \toprule
 ID & Contrast: question & Calcifications & Asymmetry & Mass (control) \\
@@ -61,7 +61,7 @@ F2 = r"""\bottomrule
 \end{table}
 """
 CROWS = [('K1', r'VP $-$ A$^{*}$', 'Does language-side LoRA add information readable by a probe beyond the base-model read-out A$^{*}$?'),
- ('DESC_VP-A_probe', r'VP $-$ A$_{\mathrm{probe}}$', 'Probe on VLM states against the linear probe on base-model states (point estimate)'),
+ ('DESC_VP-A_probe', r'VP $-$ A$_{\mathrm{probe}}$', 'Probe on VLM states against the linear probe on base-model states (paired, last study)'),
  ('K2', r'V $-$ VP', "Does a probe on the hidden states rank better than the model's token score?"),
  ('K3', r'V $-$ D', 'Gap between the VLM token score and the specialist head'),
  ('K4', r'V gain per doubling', 'Gain of the VLM curve per doubling of training breasts, last two doublings'),
@@ -75,7 +75,7 @@ CROWS = [('K1', r'VP $-$ A$^{*}$', 'Does language-side LoRA add information read
  ('P6', r'(V2x$-$V)$-$(V$-$V$_{\mathrm{ctl}}$)', 'Post hoc: second doubling minus first doubling')]
 body = ''
 for k, lab, q in CROWS:
-    cells = [(sg(g(k, f)['value']) + ' (no interval)') for f in FIND] if k == 'DESC_VP-A_probe' else [cx(k, f) for f in FIND]
+    cells = [cx('S10_K1b', f) for f in FIND] if k == 'DESC_VP-A_probe' else [cx(k, f) for f in FIND]
     body += ('desc.' if k.startswith('DESC_') else k) + ' & ' + lab + ': ' + q + ' & ' + ' & '.join(cells) + r' \\' + '\n'
     if k in ('DESC_V-Vctl', 'S5'): body += r'\addlinespace' + '\n'
 wr('table2_contrasts.tex', H2 + body + F2)
@@ -100,17 +100,22 @@ for role, nm, lab in [('Training pool', 'pool_cbis_ddsm', 'CBIS-DDSM'), ('', 'po
 wr('tableS1_data.tex', HS1 + body + FS1)
 
 # ---- Table S2 (chain of studies; literal facts from the study reports and the server hash records)
-HS2 = r"""\begin{table}[h]
-\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
-\caption{Chain of studies with protocols frozen by file hashes before the runs (``protocol-frozen''; see Methods). Times are UTC+5 and refer to the recording of file hashes on the server before the corresponding runs; hash counts are files that matched after the runs. The last column states what was known to the authors when the protocol was frozen.}\label{tab:chain}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.35cm}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.7cm}@{}}
+HS2 = r"""{\scriptsize\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.35cm}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.7cm}@{}}
+\caption{Chain of studies with protocols frozen by file hashes before the runs (``protocol-frozen''; see Methods). Times are UTC+5 and refer to the recording of file hashes on the server before the corresponding runs; hash counts are files that matched after the runs. The last column states what was known to the authors when the protocol was frozen.}\label{tab:chain}\\
 \toprule
 Study & Question & Frozen & Hashes & Deviations & Outcome by the rule & Known when frozen \\
 \midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\textit{Table S2 (continued)}}\\
+\toprule
+Study & Question & Frozen & Hashes & Deviations & Outcome by the rule & Known when frozen \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
 """
-FS2 = r"""\bottomrule
-\end{tabular}
-\end{table}
+FS2 = r"""\end{longtable}}
 """
 chain = [
  (r'''s4v12 (V1, V2)''', r'''Detection and image dependence of the VLM report against the concept route, one epoch''', r'''2026-10-04 13:07''', r'''9 of 9 (13:07 and 21:07)''', r'''none after freeze; post hoc diagnostics labelled''', r'''V1-1, V1-2: no stable difference; controls V1-3 and V2-1 not met''', r'''No VLM result; results of the concept route known'''),
@@ -121,7 +126,7 @@ chain = [
  (r'''s7zoom''', r'''Native-resolution crops with known location''', r'''2026-10-07 19:38''', r'''5 of 5''', r'''none''', r'''unclear''', r'''s6lc results; designed as exploratory'''),
  (r'''s8''', r'''Vision-tower LoRA and doubled steps''', r'''2026-10-08 15:06; phase 2 20:07''', r'''24 of 25 (one expected mismatch), 5 of 5, 1 of 1''', r'''deviation 1: verdict order aligned with the protocol text before any test metric''', r'''calcifications: S1 equivalent, S3 adds; asymmetry: S1 adds, S2 below''', r'''All s6lc test metrics, including V minus D; no metric of VC, VCP or V2x'''),
  (r'''s10an''', r'''Analyses on the saved test scores of s6lc and s8: VP minus A$_{\mathrm{probe}}$ with an interval (B1), one examination per patient (B2), own against black images on the same breasts (B3), label counts and composition (B4, B5)''', r'''2026-10-13 23:08 (with s10db)''', r'''37 of 37 (checked before each analysis and after both)''', r'''verdict column of B1 written with the s6lc rule instead of the ``gain'' rule of the protocol (same numbers); analysis job restarted once after a hash-check command error, no code change''', r'''B1: equivalent (calcifications, asymmetry); B2: labels of K2, K3, S3 and V minus V$_{\mathrm{ctl}}$ change on the earliest examination; B3: image dependence shown''', r'''All s6lc and s8 test metrics and the second external review'''),
- (r'''s10db''', r'''DINOv2 head trained for the number of updates of V (D$_{\mathrm{bV}}$) and of V2x (D$_{\mathrm{b2x}}$); contrasts C1--C3''', r'''2026-10-13 23:08 (with s10an)''', r'''37 of 37; 21 runs, exit code 0, updates as specified; K3 reproduced to $10^{-16}$''', r'''none in the analysis; environment variable and dry-run flag added before the freeze''', r'''asymmetry: C1 not below, C2 reduces (gap explained by training length by the rule); calcifications: C1 unclear, C2 reduces (``other''); C3 unclear and below''', r'''All s6lc and s8 test metrics; the expectation written in section 7 of the protocol (``the asymmetry gap remains'') was not confirmed'''),
+ (r'''s10db''', r'''DINOv2 head trained for the number of updates of V (D$_{\mathrm{bV}}$) and of V2x (D$_{\mathrm{b2x}}$); contrasts C1--C3''', r'''2026-10-13 23:08 (with s10an)''', r'''37 of 37; 21 runs, exit code 0, updates as specified; K3 reproduced to $10^{-16}$''', r'''none in the analysis; environment variable and dry-run flag added before the freeze''', r'''asymmetry: C1 not below, C2 reduces (read by the protocol rule as explained by the longer training of D; D$_{\mathrm{bV}}$ also differs in schedule and checkpoint rule); calcifications: C1 unclear, C2 reduces (``other''); C3 unclear and below''', r'''All s6lc and s8 test metrics; the expectation written in section 7 of the protocol (``the asymmetry gap remains'') was not confirmed'''),
  (r'''post hoc''', r'''Examination-type strata (screening, diagnostic) for all arms and contrasts''', r'''not frozen; scripts written after B2 and B5 had been seen; hashes of the main outputs recorded before the run''', r'''--''', r'''--''', r'''V within diagnostic examinations near chance; gaps larger within strata than pooled''', r'''All s10an and s10db results'''),
 ]
 body = ''.join(' & '.join(row) + r' \\' + '\n' for row in chain)

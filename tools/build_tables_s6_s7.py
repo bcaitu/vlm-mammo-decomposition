@@ -56,6 +56,9 @@ rows6 = [
  ('D', 'Cached $2\\times2$-pooled tokens of frozen DINOv2 ViT-B/14, both views, no augmentation',
   'All concept heads and the BI-RADS head of the stage-1 model; masked, class-weighted cross-entropy (class weight power 0.5; head weights of the stage-1 configuration)',
   'EMBED negatives redrawn at 1:1 each epoch; batch 16', 'Up to 20 epochs, patience 4; epoch with the highest dataset-mean macro F1 over the validation split', r'$3\times10^{-4}$, AdamW, weight decay 0.05, 5\% warm-up, cosine decay over 20 epochs'),
+ (r'D$_{\mathrm{bV}}$, D$_{\mathrm{b2x}}$ (s10db)', 'As D', 'As D', 'As D (EMBED negatives redrawn 1:1 in each pass; batch 16)',
+  r'Cosine schedule over exactly the updates of V at that size and seed (765 to 4,591; D$_{\mathrm{b2x}}$: 9,182 at the whole pool); 5\% warm-up; final weights, no early stopping and no checkpoint selection',
+  r'As D ($3\times10^{-4}$, AdamW, weight decay 0.05); not re-tuned'),
  ('D$_{\\mathrm{ref}}$', 'Original stage-1 runs on images with augmentation (whole pool only)', 'As D', 'As D', 'As the stage-1 configuration', 'Stage-1 configuration'),
 ]
 body6 = ''.join(row(*r) for r in rows6)

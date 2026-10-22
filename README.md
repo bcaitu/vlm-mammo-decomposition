@@ -1,6 +1,6 @@
 # vlm-mammo-decomposition
 
-Code, study protocols and aggregate results for a decomposition of the gap between an end-to-end vision-language model (Qwen3-VL-8B-Instruct with LoRA) and a supervised head (the stage-1 head of a BI-RADS concept-bottleneck pipeline on frozen DINOv2 ViT-B/14) on mammographic calcifications and asymmetry. The repository accompanies a manuscript in preparation (title: "Training length, vision tower and read-out in the gap between a vision-language model and a supervised head in mammography").
+Code, study protocols and aggregate results for a decomposition of the gap between an end-to-end vision-language model (Qwen3-VL-8B-Instruct with LoRA) and a supervised head (the stage-1 head of a BI-RADS concept-bottleneck pipeline on frozen DINOv2 ViT-B/14) on mammographic calcifications and asymmetry. The repository accompanies a manuscript in preparation (title: "Training recipe, vision tower and read-out in the gap between a vision-language model and a supervised head in mammography").
 
 Eight studies were run in sequence between 4 and 13 October 2026: s4v12, s4v3eval, s4diag, s4res, s6lc, s7zoom, s8 and s10 (two protocols, s10an and s10db, frozen together on 13 October after an external review of a draft reporting the first seven; `protocols/s10/`). s10db retrains the head for the number of optimiser updates of the VLM; s10an recomputes contrasts on the saved test scores (one examination per patient, probe against base-model read-outs, black images on the same breasts) and tabulates labels and composition; `code/s10/s10an_posthoc.py` and `s10db_posthoc.py` are the post hoc stratification by examination type (not part of the frozen protocols; see `protocols/s10/s10an_posthoc_ru.md`).
 
@@ -12,7 +12,7 @@ Eight studies were run in sequence between 4 and 13 October 2026: s4v12, s4v3eva
 | `code/<study>/` | Training, extraction, scoring and analysis scripts of each study, and the scripts that build the study reports. |
 | `results/<study>/` | Aggregate output tables and logs of each study (AUC, contrasts, intervals, run metadata). |
 | `data/paper4_numbers.csv` | The table of every number used in the manuscript, with its source. |
-| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S7 and Figures 1-5, S1 and S2 from `data/` and `results/`. |
+| `tools/` | Scripts that rebuild manuscript Tables 1, 2, S1-S11 and Figures 1-5, S1 and S2 from `data/` and `results/`. |
 
 ## What is not here
 
@@ -32,16 +32,17 @@ The scripts were run as they are on a shared GPU server, from `~/cbmammo` with `
 
 Software reported in the manuscript: Python 3.10.12, PyTorch 2.6.0 (CUDA 12.4), transformers 5.17.0, PEFT 0.21.0, scikit-learn 1.7.2, NumPy 2.2.6, SciPy 1.15.3; NVIDIA H200 GPUs.
 
-The manuscript tables can be rebuilt without any dataset:
+The manuscript tables can be rebuilt without any dataset. Run the two number builders first: `build_s10_numbers.py` removes all `S10_` rows of `data/paper4_numbers.csv` before it recreates them, so `build_review3_numbers.py` has to follow it.
 
 ```
+python3 tools/build_s10_numbers.py    # S10_* rows of data/paper4_numbers.csv from results/s10/
+python3 tools/build_review3_numbers.py  # S10_UNK_SHARE_* and S10_DRAWS_RATIO rows (unknown-label shares by examination type; random-draw ratio); run after build_s10_numbers.py
 python3 tools/make_tables.py          # Tables 1, 2, S1, S2, S3  -> tables/
 python3 tools/build_tables_extra.py   # Table S4                 -> tables/
 python3 tools/build_table_s5.py       # Table S5 (seed-to-seed SD) -> tables/
 python3 tools/build_tables_s6_s7.py   # Tables S6, S7 (recipes; updates, checkpoints, passes) -> tables/
 python3 tools/make_fig1_design.py     # Figure 1                 -> figures/
 python3 tools/make_fig2_fig3.py       # Figures 2 and 4 (learning curves; contrasts K1-K4) -> figures/
-python3 tools/build_s10_numbers.py    # S10_* rows of data/paper4_numbers.csv from results/s10/
 python3 tools/build_tables_s8_s11.py  # Tables S8-S11 (s10db, s10an, labels and composition, strata) -> tables/
 python3 tools/make_fig4_gap.py        # Figure S3 (distance to D; Figure 4 of drafts 1-3) -> figures/
 python3 tools/make_fig3_budget.py     # Figure 3 (head at the updates of the VLM) and Figure S4 (strata) -> figures/
